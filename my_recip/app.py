@@ -46,6 +46,7 @@ def add_tag(recipe_id):
     if recipe_manager.add_recipe_tag(recipe_id, tag):
         return jsonify({"success": True})
     else:
+        print("Recipe not found")
         return jsonify({"error": "Recipe not found"}), 404
 
 if __name__ == '__main__':
