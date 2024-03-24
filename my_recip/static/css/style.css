@@ -1,0 +1,96 @@
+:root {
+    /* Define your color scheme and common properties here */
+    --primary-bg-color: #007BFF;
+    --secondary-bg-color: #f9f9f9;
+    --star-color: #FFD700;
+    --border-color: #ddd;
+    --header-font-size: 2em;
+    --header-color: #ffffff;
+    --main-bg-color: #ffffff;
+    --table-bg-color: #f9f9f9;
+    --th-bg-color: #f2f2f2;
+    --td-bg-color: #fafafa;
+    --hover-star-color: #BDBDBD;
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-bg-color);
+    color: var(--header-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: var(--header-font-size);
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-bg-color);
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--th-bg-color);
+}
+
+td {
+    background-color: var(--td-bg-color);
+    vertical-align: middle; /* Ensure stars align nicely with text */
+}
+
+/* Add some space between the tables (recipes) */
+table + table {
+    margin-top: 40px;
+}
+
+/* Star Ratings */
+.star {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--star-color);
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: var(--hover-star-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: calc(var(--header-font-size) * 0.75);
+    }
+}

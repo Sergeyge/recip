@@ -38,15 +38,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const recipeElement = document.createElement('div');
+            const ratingStars = Array.from({ length: 5 }, (_, index) => {
+                const starValue = index + 1;
+                return `<button class="star" data-rating="${starValue}" aria-label="Rate as ${starValue}">${recipe.rating > index ? '★' : '☆'}</button>`;
+            }).join('');
+
             recipeElement.innerHTML = `
                 <h2>${recipe.name}</h2>
-                <p><strong>Tags:</strong> ${tags.join(', ')}</p>
-                <p><strong>Ingredients:</strong> ${ingredients.join('<br>')}</p>
-                <p><strong>Instructions:</strong> ${instructions.join('<br>')}</p>
-                <div>Rating: ${recipe.rating}</div>
+                <table>
+                    <tr>
+                        <th>Tags</th>
+                        <td>${tags.join(', ')}</td>
+                    </tr>
+                    <tr>
+                        <th>Ingredients</th>
+                        <td>${ingredients.join('<br>')}</td>
+                    </tr>
+                    <tr>
+                        <th>Instructions</th>
+                        <td>${instructions.join('<br>')}</td>
+                    </tr>
+                    <tr>
+                        <th>Rating</th>
+                        <td>${ratingStars}</td>
+                    </tr> 
+                </table>
             `;
-            recipesElement.appendChild(recipeElement);
+        // After appending recipeElement to the document
+        recipeElement.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function() {
+                const newRating = this.getAttribute('data-rating');
+                updateRecipeRating(recipe.id, newRating);
+            });
+        });            
+        recipesElement.appendChild(recipeElement);
         });
     })
     .catch(error => console.error('Error loading recipes:', error));
+
+    function updateRecipeRating(recipeId, newRating) {
+        fetch(`/recipes/rate/${recipeId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ rating: newRating }),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Rating updated successfully.");
+                // Optionally, reload recipes or update the UI accordingly
+            } else {
+                console.error("Failed to update rating.");
+            }
+        });
+    }    
 });
