@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/recipes')
     .then(response => response.json())
@@ -59,6 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>${instructions.join('<br>')}</td>
                     </tr>
                     <tr>
+                        <th>Date Added</th>
+                        <td>${recipe.date_created}</td>
+                    </tr>                    
+                    <tr>
                         <th>Rating</th>
                         <td>${ratingStars}</td>
                     </tr> 
@@ -93,4 +98,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }    
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const showFormButton = document.getElementById('showFormButton');
+    const addRecipeForm = document.getElementById('addRecipeForm');
+    const cancelButton = document.getElementById('cancelButton');
+
+    showFormButton.addEventListener('click', function() {
+        addRecipeForm.style.display = 'block'; // Show the form
+        showFormButton.style.display = 'none'; // Optionally hide the button
+    });
+    cancelButton.addEventListener('click', function() {
+        addRecipeForm.style.display = 'none'; // Hide the form
+        showFormButton.style.display = 'block'; // Show the "Add New Recipe" button again
+    });    
+        addRecipeForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = {
+            name: this.name.value,
+            tags: this.tags.value.split(',').map(tag => tag.trim()), // Split comma-separated tags and trim whitespace
+            ingredients: this.ingredients.value.split(',').map(ingredient => ingredient.trim()),
+            instructions: this.instructions.value.split(',').map(instruction => instruction.trim()),
+            rating: 5, // Default rating
+        };
+
+        fetch('/recipes/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message); // Log success message
+            window.location.reload(); // Refresh the page to reflect the added recipe
+        })
+        .catch(error => console.error('Error adding recipe:', error));
+    });
 });

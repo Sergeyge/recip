@@ -49,5 +49,30 @@ def add_tag(recipe_id):
         print("Recipe not found")
         return jsonify({"error": "Recipe not found"}), 404
 
+@app.route('/recipes/add', methods=['POST'])
+def add_recipe():
+    # Extract data from the request
+    data = request.get_json()
+    name = data.get('name')
+    tags = data.get('tags')
+    ingredients = data.get('ingredients')
+    instructions = data.get('instructions')
+    rating = data.get('rating')
+    # date_created = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # Validate data (basic validation)
+    if not all([name, tags, ingredients, instructions, isinstance(rating, int)]):
+        return jsonify({'error': 'Missing or invalid data for the recipe'}), 400
+
+    # Add the new recipe
+    try:
+        recipe_manager.add_new_recipe(name, tags, ingredients, instructions, rating)
+        return jsonify({'message': 'Recipe added successfully'}), 201
+    except Exception as e:
+        # Handle errors (e.g., database errors) and return a server error message
+        print(e)  # Log the error for debugging
+        return jsonify({'error': 'Could not add the recipe'}), 500
+
+
 if __name__ == '__main__':
     app.run(debug=True)

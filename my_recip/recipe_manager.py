@@ -1,5 +1,6 @@
 import sqlite3
 import json
+from datetime import datetime
 
 class RecipeManager:
     def __init__(self, db_path='recipes.db'):
@@ -61,8 +62,18 @@ class RecipeManager:
                 'tags': json.loads(row[2]),
                 'ingredients': json.loads(row[3]),
                 'instructions': json.loads(row[4]),
-                'rating': row[5]
+                'rating': row[5],
+                'date_created': row[6]                
             }
             recipes.append(recipe)
-        
         return recipes
+    
+    def add_new_recipe(self, name, tags, ingredients, instructions, rating):
+        conn = self.get_db_connection()
+        date_created = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        c = conn.cursor()
+        c.execute('''INSERT INTO recipes (name, tags, ingredients, instructions, rating, date_created) 
+                     VALUES (?, ?, ?, ?, ?, ?)''', 
+                  (name, json.dumps(tags), json.dumps(ingredients), json.dumps(instructions), rating, date_created,))
+        conn.commit()
+        conn.close()    

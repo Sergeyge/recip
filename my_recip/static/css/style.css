@@ -94,3 +94,52 @@ table + table {
         font-size: calc(var(--header-font-size) * 0.75);
     }
 }
+
+form#addRecipeForm {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+form#addRecipeForm label {
+    display: block;
+    margin-top: 10px;
+}
+
+form#addRecipeForm input[type="text"],
+form#addRecipeForm input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+form#addRecipeForm button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form#addRecipeForm button:hover {
+    background-color: #0056b3;
+}
+
+form#addRecipeForm button[type="button"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #dc3545; /* Bootstrap danger color for cancel actions */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form#addRecipeForm button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+#addRecipeForm {
+    display: none;
+}
+
