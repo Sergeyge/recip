@@ -76,4 +76,4 @@ class RecipeManager:
                      VALUES (?, ?, ?, ?, ?, ?)''', 
                   (name, json.dumps(tags), json.dumps(ingredients), json.dumps(instructions), rating, date_created,))
         conn.commit()
-        conn.close()    
+        conn.close()

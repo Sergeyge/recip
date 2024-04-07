@@ -13,11 +13,18 @@ def index():
 
 @app.route('/recipes', methods=['GET'])
 def get_recipes():
-    print("Fetching all recipes...")
-    """Endpoint to retrieve recipes. Optionally filter by tag."""
-    tag = request.args.get('tag', None)
-    recipes = recipe_manager.get_all_recipes(tag_filter=tag)
-    return jsonify([recipe for recipe in recipes])
+    # print("Fetching all recipes...")
+    # """Endpoint to retrieve recipes. Optionally filter by tag."""
+    # tag = request.args.get('tag', None)
+    # recipes = recipe_manager.get_all_recipes(tag_filter=tag)
+    # return jsonify([recipe for recipe in recipes])
+    tag = request.args.get('tag')
+    if tag:
+        recipes = recipe_manager.get_all_recipes(tag)
+    else:
+        recipes = recipe_manager.get_all_recipes()
+    return jsonify(recipes)
+
 
 @app.route('/recipes/rating/<int:rating>', methods=['GET'])
 def get_recipes_by_rating(rating):

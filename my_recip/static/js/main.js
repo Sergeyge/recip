@@ -1,5 +1,13 @@
 
+import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm} from './module.js';
+
 document.addEventListener('DOMContentLoaded', function() {
+    const showFormButton = document.getElementById('showFormButton');
+    const addRecipeForm = document.getElementById('addRecipeForm');
+    const cancelButton = document.getElementById('cancelButton');
+    const searchButton = document.getElementById('searchButton');
+    const searchTagInput = document.getElementById('searchTagInput');    
+
     fetch('/recipes')
     .then(response => response.json())
     .then(data => {
@@ -81,61 +89,23 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Error loading recipes:', error));
 
-    function updateRecipeRating(recipeId, newRating) {
-        fetch(`/recipes/rate/${recipeId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ rating: newRating }),
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log("Rating updated successfully.");
-                // Optionally, reload recipes or update the UI accordingly
-            } else {
-                console.error("Failed to update rating.");
-            }
-        });
-    }    
-});
+    
 
-document.addEventListener('DOMContentLoaded', function() {
-    const showFormButton = document.getElementById('showFormButton');
-    const addRecipeForm = document.getElementById('addRecipeForm');
-    const cancelButton = document.getElementById('cancelButton');
-
-    showFormButton.addEventListener('click', function() {
-        addRecipeForm.style.display = 'block'; // Show the form
-        showFormButton.style.display = 'none'; // Optionally hide the button
+    searchButton.addEventListener('click', function() {
+        const tag = searchTagInput.value.trim(); // Get the entered tag
+        fetchRecipes(tag); // Fetch recipes by tag or all if tag is empty
     });
-    cancelButton.addEventListener('click', function() {
-        addRecipeForm.style.display = 'none'; // Hide the form
-        showFormButton.style.display = 'block'; // Show the "Add New Recipe" button again
-    });    
-        addRecipeForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = {
-            name: this.name.value,
-            tags: this.tags.value.split(',').map(tag => tag.trim()), // Split comma-separated tags and trim whitespace
-            ingredients: this.ingredients.value.split(',').map(ingredient => ingredient.trim()),
-            instructions: this.instructions.value.split(',').map(instruction => instruction.trim()),
-            rating: 5, // Default rating
-        };
-
-        fetch('/recipes/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.message); // Log success message
-            window.location.reload(); // Refresh the page to reflect the added recipe
-        })
-        .catch(error => console.error('Error adding recipe:', error));
+          
+   
+    // Use the search button to fetch recipes by tag
+    searchButton.addEventListener('click', function() {
+        const tag = searchTagInput.value.trim();
+        fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
     });
+
+
+    
+    showFormButton.addEventListener('click', showAddRecipeForm);
+    cancelButton.addEventListener('click', hideAddRecipeForm);
+    addRecipeForm.addEventListener('submit', submitAddRecipeForm);    
 });
