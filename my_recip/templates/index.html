@@ -14,6 +14,7 @@
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button id="loginButton">Login</button>
+        <button id="signinButton">Signin</button>
     </div>    
 
     <!-- Hidden greeting message and logout button -->
@@ -23,6 +24,15 @@
         <button id="showFormButton">Add New Recipe</button> <!-- Button to show the form -->        
     </div>    
 
+    <div id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="Choose a username">
+        <input type="password" id="regPassword" placeholder="Choose a password">
+        <span id="passwordError" style="color:red; display:none;">Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.</span>
+        <button id="cancelRegButton">Cancel</button>
+        <button id="registerButton">Register</button>
+    </div>
+    
     <div id="searchArea">
         <input type="text" id="searchTagInput" placeholder="Search by tag...">
         <button id="searchButton">Search</button>

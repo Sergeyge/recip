@@ -143,3 +143,10 @@ form#addRecipeForm button[type="button"]:hover {
     display: none;
 }
 
+
+#registerForm {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-top: 40px;
+}

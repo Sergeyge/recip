@@ -1,5 +1,5 @@
 
-import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm, updateRecipeRating, login, logout} from './module.js';
+import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm, updateRecipeRating, login, logout, showSignInForm,register, hideRegForm} from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const showFormButton = document.getElementById('showFormButton');
@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchTagInput = document.getElementById('searchTagInput');    
     const loginButton = document.getElementById('loginButton');
     const logoutButton = document.getElementById('logoutButton');
+    const signinButton = document.getElementById('signinButton');
+    const registerButton = document.getElementById('registerButton');
 
     fetch('/recipes')
     .then(response => response.json())
@@ -111,4 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addRecipeForm.addEventListener('submit', submitAddRecipeForm);    
     loginButton.addEventListener('click', login);
     logoutButton.addEventListener('click', logout);
+    signinButton.addEventListener('click', showSignInForm);
+    registerButton.addEventListener('click', register);
+    cancelRegButton.addEventListener('click', hideRegForm);
 });

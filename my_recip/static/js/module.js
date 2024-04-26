@@ -175,3 +175,64 @@ export function logout() {
     .catch(error => console.error('Error logging out:', error));
 }
 
+
+export function showSignInForm() {  
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('searchArea').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+}
+
+export function register() {
+    const username = document.getElementById('regUsername').value;
+    const password = document.getElementById('regPassword').value;
+
+    // validate username and password
+    if (!validatePassword()) {
+        alert('Please ensure the password meets all requirements.');
+        return;
+    }
+
+    fetch('/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Registration successful');
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('searchArea').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'block';
+        } else {
+            alert('Registration failed: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error registering:', error);
+        alert('Error registering: ' + error.message);
+    });
+}
+
+export function hideRegForm() { 
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('searchArea').style.display = 'block';
+    document.getElementById('loginForm').style.display = 'block';
+}
+
+
+function validatePassword() {
+    const password = document.getElementById('regPassword').value;
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+    const errorMessage = document.getElementById('passwordError');
+
+    if (regex.test(password)) {
+        errorMessage.style.display = 'none';
+        return true;
+    } else {
+        errorMessage.style.display = 'block';
+        return false;
+    }
+}

@@ -5,6 +5,7 @@ from statistics_manager import ServerStats
 from recipe_manager import RecipeManager
 import os
 import logging
+import ssl
 
 from user_manager import UserManager
 
@@ -57,6 +58,12 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.add_recipe(data)
         elif path.startswith('/recipes/rate/'):
             self.rate_recipe(path, data)
+        elif self.path == '/register':
+            success, message = self.user_manager.register_user(data['username'], data['password'])
+            self.send_response(200 if success else 400)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({'success': success, 'message': message}).encode())
         else:
             self.send_error_page(404)
 
@@ -171,9 +178,16 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                       format % args))
 
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8001):
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8443):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
+    # Set up an SSL context
+    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
+
+    # Wrap the server socket in the context
+    httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
+
     print(f'Starting httpd server on port {port}')
     try:
         httpd.serve_forever()
