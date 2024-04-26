@@ -65,7 +65,7 @@ export function fetchRecipes(tag = '') {
     .catch(error => console.error('Error loading recipes:', error));
 }
 
-function updateRecipeRating(recipeId, newRating) {
+export function updateRecipeRating(recipeId, newRating) {
     fetch(`/recipes/rate/${recipeId}`, {
         method: 'POST',
         headers: {
@@ -77,8 +77,12 @@ function updateRecipeRating(recipeId, newRating) {
         if (response.ok) {
             console.log("Rating updated successfully.");
             // Optionally, reload recipes or update the UI accordingly
+        } else if (response.status === 401) {
+            console.error("Failed to update rating: User is not authenticated.");
+            alert("Failed to update rating: User is not authenticated.");
         } else {
             console.error("Failed to update rating.");
+            alert("Failed to update rating.");
         }
     });
 }    
@@ -121,5 +125,53 @@ export function submitAddRecipeForm(event) {
 
     })
     .catch(error => console.error('Error adding recipe:', error));
+}
+
+
+export function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('usernameDisplay').textContent = username;
+            document.getElementById('userGreeting').style.display = 'block';
+
+        } else {
+            alert('Login failed: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error logging in:', error));
+}
+
+export function logout() {
+    console.log("Logout button clicked");
+    fetch('/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Logout successful') {
+            alert('Logout successful');
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('userGreeting').style.display = 'none';
+
+        } else {
+            alert('Logout failed: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error logging out:', error));
 }
 

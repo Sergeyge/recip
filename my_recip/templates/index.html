@@ -10,11 +10,23 @@
     <header>
         <h1>My Recipe Site</h1>
     </header>
+    <div id="loginForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginButton">Login</button>
+    </div>    
+
+    <!-- Hidden greeting message and logout button -->
+    <div id="userGreeting" style="display: none;">
+        <p>Hello, <span id="usernameDisplay"></span>!</p>
+        <button id="logoutButton">Logout</button>
+        <button id="showFormButton">Add New Recipe</button> <!-- Button to show the form -->        
+    </div>    
+
     <div id="searchArea">
         <input type="text" id="searchTagInput" placeholder="Search by tag...">
         <button id="searchButton">Search</button>
     </div>
-    <button id="showFormButton">Add New Recipe</button> <!-- Button to show the form -->
     <main id="recipes">
         <form id="addRecipeForm">
             <h2>Add a New Recipe</h2>
