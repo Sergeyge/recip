@@ -16,22 +16,23 @@ class ServerStats:
                 timestamp TEXT,
                 ip TEXT,
                 port INTEGER,
-                user_agent TEXT
+                user_agent TEXT,
+                is_registered BOOLEAN                  
             )
         ''')
         conn.commit()
         conn.close()
 
 
-    def increment_request_count(self, method, client_address, user_agent):
+    def increment_request_count(self, method, client_address, user_agent, is_registered):
         ip, port = client_address
         timestamp = datetime.datetime.now().isoformat()
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
         c.execute('''
-            INSERT INTO requests (method, timestamp, ip, port, user_agent)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (method, timestamp, ip, port, user_agent))
+            INSERT INTO requests (method, timestamp, ip, port, user_agent, is_registered)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (method, timestamp, ip, port, user_agent, is_registered))
         conn.commit()
         conn.close()
 
@@ -39,40 +40,44 @@ class ServerStats:
     def report(self):
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
+        stats_data = {}
 
-        # General statistics
-        print("Overall Statistics:")
+        # General statistics on request methods
         c.execute('SELECT method, COUNT(*) FROM requests GROUP BY method')
         methods_count = c.fetchall()
-        for method, count in methods_count:
-            print(f"{method}: {count}")
+        stats_data['methods'] = [{'method': method, 'count': count} for method, count in methods_count]
 
+        # Top User-Agents
         c.execute('SELECT user_agent, COUNT(*) FROM requests GROUP BY user_agent ORDER BY COUNT(*) DESC LIMIT 5')
         user_agents = c.fetchall()
-        print("Top 5 User-Agents:")
-        for user_agent, count in user_agents:
-            print(f"{user_agent}: {count}")
+        stats_data['top_user_agents'] = [{'user_agent': user_agent, 'count': count} for user_agent, count in user_agents]
 
-        # Statistics per IP
-        print("\nStatistics per IP:")
+        # Count of requests from registered and non-registered users
+        c.execute('SELECT is_registered, COUNT(*) FROM requests GROUP BY is_registered')
+        registration_counts = c.fetchall()
+        stats_data['registered'] = {'true': 0, 'false': 0}
+        for is_registered, count in registration_counts:
+            key = 'true' if is_registered else 'false'
+            stats_data['registered'][key] = count
+
+        # Statistics per IP (optional, remove if not needed)
         c.execute('SELECT DISTINCT ip FROM requests')
         ips = c.fetchall()
+        ips_stats = []
         for ip in ips:
             ip = ip[0]  # Extract string from tuple
-            print(f"\nStatistics for IP: {ip}")
-
-            # Count requests per method for this IP
+            ip_data = {'ip': ip, 'details': {}}
             c.execute('SELECT method, COUNT(*) FROM requests WHERE ip=? GROUP BY method', (ip,))
-            method_counts = c.fetchall()
-            for method, count in method_counts:
-                print(f"  Method {method}: {count}")
-
-            # Display top User-Agents for this IP
-            c.execute('SELECT user_agent, COUNT(*) FROM requests WHERE ip=? GROUP BY user_agent ORDER BY COUNT(*) DESC LIMIT 3', (ip,))
-            user_agents = c.fetchall()
-            print("  Top User-Agents:")
-            for user_agent, count in user_agents:
-                print(f"    {user_agent}: {count}")
-
+            ip_data['details']['methods'] = [{'method': method, 'count': count} for method, count in c.fetchall()]
+            c.execute('SELECT user_agent, COUNT(*) FROM requests WHERE ip=? GROUP BY user_agent ORDER BY COUNT(*) DESC LIMIT 5', (ip,))
+            ip_data['details']['user_agents'] = [{'user_agent': user_agent, 'count': count} for user_agent, count in c.fetchall()]
+            ips_stats.append(ip_data)
+        
+        stats_data['ips'] = ips_stats
         conn.close()
+        return stats_data
 
+
+        stats_data['ips'] = ips_stats
+        conn.close()
+        return stats_data

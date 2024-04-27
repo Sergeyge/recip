@@ -1,5 +1,5 @@
 
-import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm, updateRecipeRating, login, logout, showSignInForm,register, hideRegForm} from './module.js';
+import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm, updateRecipeRating, login, logout, showSignInForm,register, hideRegForm, sendToOpenAI} from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const showFormButton = document.getElementById('showFormButton');
@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutButton = document.getElementById('logoutButton');
     const signinButton = document.getElementById('signinButton');
     const registerButton = document.getElementById('registerButton');
+    const cancelRegButton = document.getElementById('cancelRegButton');
+    const sendToOpenAIButton = document.getElementById('sendToOpenAIButton');
+    
 
     fetch('/recipes')
     .then(response => response.json())
@@ -107,6 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
     });
 
+    sendToOpenAIButton.addEventListener('click', function() {
+        console.log('sendToOpenAIButton clicked');
+        const promptText = document.getElementById('openAIText').value;
+        sendToOpenAI(JSON.stringify({ prompt: promptText }))
+    });
 
     showFormButton.addEventListener('click', showAddRecipeForm);
     cancelButton.addEventListener('click', hideAddRecipeForm);

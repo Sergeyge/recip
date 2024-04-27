@@ -175,6 +175,27 @@ export function logout() {
     .catch(error => console.error('Error logging out:', error));
 }
 
+export function sendToOpenAI(question) {
+    console.log("Send to OpenAI button clicked");
+    fetch('/openai', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: question
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('OpenAI response:', data);
+        document.getElementById('openAIResponse').textContent = data;
+    })
+    .catch(error => {
+        console.error('Error sending prompt to OpenAI:', error);
+        document.getElementById('openAIResponse').textContent = 'Failed to get response from OpenAI.';
+    });
+}
+
+
 
 export function showSignInForm() {  
     document.getElementById('loginForm').style.display = 'none';
@@ -185,11 +206,16 @@ export function showSignInForm() {
 export function register() {
     const username = document.getElementById('regUsername').value;
     const password = document.getElementById('regPassword').value;
-
+    const email = document.getElementById('regEmail').value;
     // validate username and password
     if (!validatePassword()) {
         alert('Please ensure the password meets all requirements.');
         return;
+    }
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return false;
     }
 
     fetch('/register', {
@@ -197,7 +223,7 @@ export function register() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, password, email})
     })
     .then(response => response.json())
     .then(data => {
@@ -213,6 +239,7 @@ export function register() {
     .catch(error => {
         console.error('Error registering:', error);
         alert('Error registering: ' + error.message);
+        
     });
 }
 
@@ -235,4 +262,18 @@ function validatePassword() {
         errorMessage.style.display = 'block';
         return false;
     }
+}
+
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const errorMessage = document.getElementById('emailError');
+    
+    if (regex.test(email)) {
+        errorMessage.style.display = 'none';
+        return true;
+    } else {
+        errorMessage.style.display = 'block';
+        return false;
+    }    
+    return regex.test(email);
 }

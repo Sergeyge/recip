@@ -1,5 +1,14 @@
 import sqlite3
 import hashlib
+import re
+
+def is_valid_email(email):
+    """ Validate email format using regular expression. """
+    return re.match(r'^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$', email) is not None
+
+def is_valid_password(password):
+    """ Validate password format using regular expression. """
+    return re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$', password) is not None
 
 class UserManager:
     def __init__(self, db_path='users.db'):
@@ -14,8 +23,9 @@ class UserManager:
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY,
                 username TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL  -- Store hashed passwords
-            )
+                password TEXT NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                role TEXT NOT NULL DEFAULT 'viewer'            )
         ''')
 
         conn.commit()
@@ -25,7 +35,7 @@ class UserManager:
         if c.fetchone() is None:
             # Insert default admin user
             hashed_password = self.hash_password('admin')
-            c.execute('INSERT INTO users (username, password) VALUES (?, ?)', ('admin', hashed_password))
+            c.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)', ('admin', hashed_password, 'admin@recip.com', 'admin'))
             conn.commit()
         conn.close()
 
@@ -33,32 +43,32 @@ class UserManager:
         password = self.hash_password(password)
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
-        c.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
+        c.execute('SELECT id FROM users WHERE username=? AND password=?', (username, password))
         user = c.fetchone()
         conn.close()
-        return user is not None
+        return user[0] if user else None
 
     def set_logged_in(self, value):
         self._logged_in = value
 
-    def register_user(self, username, password):
-        # validate username and strong  password
-        if len(username) < 4:
-            return False, "Username must be at least 4 characters long"
-        if len(password) < 8:            
-            return False, "Password must be at least 8 characters long"
- 
+    def register_user(self, username, password, email, role='viewer'):
+        if not is_valid_email(email):
+            return False, "Invalid email format"
+        
+        if not is_valid_password(password):
+            return False, "Password does not meet the requirements"    
+         
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
         # Check if the username already exists
-        c.execute('SELECT * FROM users WHERE username=?', (username,))
-        if c.fetchone() is not None:
+        c.execute('SELECT * FROM users WHERE username=? OR email=?', (username, email))
+        if c.fetchone():
             conn.close()
-            return False, "Username already exists"
+            return False, "Username or email already exists"
 
-        # Insert new user with hashed password
+        # Insert new user with hashed password and role
         hashed_password = self.hash_password(password)
-        c.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, hashed_password))
+        c.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)', (username, hashed_password, email, role))
         conn.commit()
         conn.close()
         return True, "User registered successfully"

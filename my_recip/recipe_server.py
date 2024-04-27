@@ -1,8 +1,11 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 from urllib.parse import urlparse, parse_qs
+
+import requests
 from statistics_manager import ServerStats
 from recipe_manager import RecipeManager
+
 import os
 import logging
 import ssl
@@ -24,7 +27,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-        self.stats.increment_request_count('GET', self.client_address, user_agent)
+        self.stats.increment_request_count('GET', self.client_address, user_agent, self.user_manager._logged_in)
 
         self.log_message("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         parsed_path = urlparse(self.path)
@@ -39,11 +42,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.handle_logout_request()
         else:
             self.send_error_page(404)
-        # super().do_GET()
 
     def do_POST(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-        self.stats.increment_request_count('POST', self.client_address, user_agent)
+        self.stats.increment_request_count('POST', self.client_address, user_agent, self.user_manager._logged_in)
         self.log_message("POST request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         
         content_length = int(self.headers['Content-Length'])
@@ -51,20 +53,24 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         data = json.loads(post_data.decode())
         parsed_path = urlparse(self.path)
         path = parsed_path.path
+        print("Path:", path)
 
         if path == '/login':
             self.handle_login(data)
         elif path == '/recipes/add':
             self.add_recipe(data)
+        elif path == '/openai':
+            self.handle_openai_request(data)            
         elif path.startswith('/recipes/rate/'):
             self.rate_recipe(path, data)
         elif self.path == '/register':
-            success, message = self.user_manager.register_user(data['username'], data['password'])
+            success, message = self.user_manager.register_user(data['username'], data['password'], data['email'])
             self.send_response(200 if success else 400)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({'success': success, 'message': message}).encode())
         else:
+            print("path = ", path)
             self.send_error_page(404)
 
     def handle_login(self, data):
@@ -81,7 +87,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_response(401)  # Unauthorized
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps({'success': False, 'message': 'Invalid username or password'}).encode())
+            self.wfile.write(json.dumps({'error': False, 'message': 'Invalid username or password'}).encode())
 
         
     def send_error_page(self, status_code):
@@ -134,6 +140,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(recipes).encode())
 
     def add_recipe(self, data):
+        if not self.user_manager._logged_in:
+            self._set_headers(401)
+            self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
+            return
         try:
             if not all([data.get('name'), data.get('tags'), data.get('ingredients'), data.get('instructions'), isinstance(data.get('rating'), int)]):
                 self._set_headers(400)
@@ -151,7 +161,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         if not self.user_manager._logged_in:
             # popup message to user 
             self._set_headers(401)
-            self.wfile.write(json.dumps({"success": False, "message": "User not logged in"}).encode())
+            self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
             return
         try:
             parts = path.split('/')
@@ -171,6 +181,50 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         except ValueError as e:
             self.send_error_page(404)
 
+    def handle_openai_request(self, question):
+        print ("data = ", question)
+        api_key = os.getenv('OPENAI_API_KEY')
+        url = "https://api.openai.com/v1/chat/completions"
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+
+        data = {
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                },
+                {
+                    "role": "user",
+                    "content": str(question)
+                }
+            ]
+        }
+
+        response = requests.post(url, headers=headers, json=data)
+        print ("responce=", response.content)
+        if response.status_code == 200:
+            response_json = response.json()
+            print("response_json = ", response_json)
+            message_content = response_json['choices'][0]['message']['content']
+            print("message_content = ", message_content)
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            # self.wfile.write(message_content.encode())
+            self.wfile.write(json.dumps(message_content).encode())
+        else:
+            # Handle errors
+            self.send_response(response.status_code)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": "Failed to process request with OpenAI"}).encode())
+
+
     def log_message(self, format, *args):
         logging.info("%s - - [%s] %s" %
                      (self.client_address[0],
@@ -178,7 +232,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                       format % args))
 
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8443):
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8444):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context

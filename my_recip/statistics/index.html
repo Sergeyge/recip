@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Statistics</title>
+    <link rel="stylesheet" href="statistics/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Server Request Statistics</h1>
+    </header>
+    <main>
+        <section id="methodStats">
+            <h2 onclick="toggleSection('methodList')">Requests by Method</h2>
+            <ul id="methodList" class="content"></ul>
+        </section>
+        <section id="userTypeStats">
+            <h2 onclick="toggleSection('userTypeDetails')">Requests by User Type</h2>
+            <div id="userTypeDetails" class="content">
+                <p id="registered"></p>
+                <p id="nonRegistered"></p>
+            </div>
+        </section>
+        <section id="userAgentStats">
+            <h2 onclick="toggleSection('userAgentList')">Top User-Agents</h2>
+            <ul id="userAgentList" class="content"></ul>
+        </section>
+        <section id="ipStats">
+            <h2 onclick="toggleSection('ipDetails')">Details by IP Address</h2>
+            <div id="ipDetails" class="content"></div>
+        </section>
+    </main>
+    <script src="statistics/js/stats.js"></script>
+</body>
+</html>

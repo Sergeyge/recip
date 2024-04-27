@@ -28,7 +28,9 @@
         <h2>Register</h2>
         <input type="text" id="regUsername" placeholder="Choose a username">
         <input type="password" id="regPassword" placeholder="Choose a password">
-        <span id="passwordError" style="color:red; display:none;">Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.</span>
+        <span id="passwordError" style="color:red; display:none;">Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.</span>        
+        <input type="email" id="regEmail" placeholder="Your email">
+        <span id="emailError" style="color:red; display:none;">Please enter a valid email address.</span>
         <button id="cancelRegButton">Cancel</button>
         <button id="registerButton">Register</button>
     </div>
@@ -37,6 +39,12 @@
         <input type="text" id="searchTagInput" placeholder="Search by tag...">
         <button id="searchButton">Search</button>
     </div>
+    <div id="openAIRequest">
+        <h2>Ask OpenAI</h2>
+        <textarea id="openAIText" placeholder="Enter your question or prompt for OpenAI..."></textarea>
+        <button id="sendToOpenAIButton">Send to OpenAI</button>
+        <p id="openAIResponse"></p>
+    </div>    
     <main id="recipes">
         <form id="addRecipeForm">
             <h2>Add a New Recipe</h2>
