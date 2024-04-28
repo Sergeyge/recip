@@ -22,6 +22,7 @@ body {
     background-color: var(--main-bg-color);
 }
 
+
 /* Header Styles */
 header {
     background-color: var(--primary-bg-color);
@@ -99,49 +100,42 @@ table + table {
 form#addRecipeForm {
     background-color: #f0f0f0;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto; /* Centralized margin definition for both top and horizontal */
+    max-width: 800px; /* Consistent max-width for the form */
+    display: none; /* Display block to center the form in the page */
 }
 
-form#addRecipeForm label {
-    display: block;
-    margin-top: 10px;
-}
-
+/* Input fields styling */
 form#addRecipeForm input[type="text"],
 form#addRecipeForm input[type="number"] {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 5px; /* Margin top for spacing between inputs */
 }
 
+/* Button styling */
 form#addRecipeForm button {
-    margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007BFF;
+    margin-top: 20px; /* Margin top to separate buttons from input fields */
+    background-color: #007BFF; /* Primary action button color */
     color: white;
     border: none;
     cursor: pointer;
+    
 }
 
+/* Hover effects for all buttons */
 form#addRecipeForm button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darken button color on hover for better interaction feedback */
 }
 
+/* Specific styles for 'cancel' type button */
 form#addRecipeForm button[type="button"] {
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #dc3545; /* Bootstrap danger color for cancel actions */
-    color: white;
-    border: none;
-    cursor: pointer;
 }
 
 form#addRecipeForm button[type="button"]:hover {
-    background-color: #c82333;
-}
-
-#addRecipeForm {
-    display: none;
+    background-color: #c82333; /* Darker shade on hover for the cancel button */
 }
 
 

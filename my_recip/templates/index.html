@@ -74,26 +74,27 @@
     </div>
     
     
+    
+    <form id="addRecipeForm">
+        <h2>Add a New Recipe</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="tags">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags" required><br>
+
+        <label for="ingredients">Ingredients (comma-separated):</label>
+        <input type="text" id="ingredients" name="ingredients" required><br>
+
+        <label for="instructions">Instructions (comma-separated):</label>
+        <input type="text" id="instructions" name="instructions" required><br>
+
+        <button type="submit">Add Recipe</button>
+        <button type="button" id="cancelButton">Cancel</button>
+    </form>        
+
     <main id="recipes">
-        <form id="addRecipeForm">
-            <h2>Add a New Recipe</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-    
-            <label for="tags">Tags (comma-separated):</label>
-            <input type="text" id="tags" name="tags" required><br>
-    
-            <label for="ingredients">Ingredients (comma-separated):</label>
-            <input type="text" id="ingredients" name="ingredients" required><br>
-    
-            <label for="instructions">Instructions (comma-separated):</label>
-            <input type="text" id="instructions" name="instructions" required><br>
-    
-            <button type="submit">Add Recipe</button>
-            <button type="button" id="cancelButton">Cancel</button>
-        </form>        
-        <!-- Recipes will be loaded here dynamically -->
+        <script type="module" src="static/js/main.js"></script>    
     </main>
-    <script type="module" src="static/js/main.js"></script>    
  </body>
 </html>
