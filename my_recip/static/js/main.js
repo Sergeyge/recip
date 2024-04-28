@@ -1,5 +1,17 @@
 
-import {fetchRecipes, showAddRecipeForm, hideAddRecipeForm, submitAddRecipeForm, updateRecipeRating, login, logout, showSignInForm,register, hideRegForm, sendToOpenAI} from './module.js';
+import {
+    fetchRecipes, 
+    showAddRecipeForm, 
+    hideAddRecipeForm, 
+    submitAddRecipeForm, 
+    updateRecipeRating, 
+    login, 
+    logout, 
+    showSignInForm,
+    register, 
+    hideRegForm, 
+    sendToOpenAI
+} from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const showFormButton = document.getElementById('showFormButton');
@@ -98,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-    searchButton.addEventListener('click', function() {
-        const tag = searchTagInput.value.trim(); // Get the entered tag
-        fetchRecipes(tag); // Fetch recipes by tag or all if tag is empty
-    });
+    // searchButton.addEventListener('click', function() {
+    //     const tag = searchTagInput.value.trim(); // Get the entered tag
+    //     fetchRecipes(tag); // Fetch recipes by tag or all if tag is empty
+    // });
           
    
     // Use the search button to fetch recipes by tag
@@ -111,8 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     sendToOpenAIButton.addEventListener('click', function() {
-        console.log('sendToOpenAIButton clicked');
-        const promptText = document.getElementById('openAIText').value;
+        const dietCheckboxes = document.querySelectorAll('input[name="diet"]:checked');
+        let diets = Array.from(dietCheckboxes).map(checkbox => checkbox.value).join(', ');
+        if (diets === '') {
+            diets = 'any diet';
+        }
+        const cuisine = document.getElementById('cuisineSelect').value;
+        let promptText = `Generate a recipe for ${cuisine} cuisine with the following dietary preferences: ${diets}.`;
+        console.log('promptText:', promptText);
         sendToOpenAI(JSON.stringify({ prompt: promptText }))
     });
 

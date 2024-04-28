@@ -182,6 +182,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_error_page(404)
 
     def handle_openai_request(self, question):
+        if not self.user_manager._logged_in:
+            self._set_headers(401)
+            self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
+            return        
         print ("data = ", question)
         api_key = os.getenv('OPENAI_API_KEY')
         url = "https://api.openai.com/v1/chat/completions"

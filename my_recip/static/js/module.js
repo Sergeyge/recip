@@ -89,14 +89,12 @@ export function updateRecipeRating(recipeId, newRating) {
 
 export function showAddRecipeForm() {
     console.log("Show form button clicked");
-    addRecipeForm.style.display = 'block'; // Show the form
-    showFormButton.style.display = 'none'; // Optionally hide the button
+    document.getElementById('addRecipeForm').style.display = 'block';
 }
 
 export function hideAddRecipeForm() {
     console.log("Cancel button clicked");
     addRecipeForm.style.display = 'none'; // Hide the form
-    showFormButton.style.display = 'block'; // Show the "Add New Recipe" button again
 }
 
 export function submitAddRecipeForm(event) {
@@ -145,6 +143,7 @@ export function login() {
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('usernameDisplay').textContent = username;
             document.getElementById('userGreeting').style.display = 'block';
+            document.getElementById('openAIRequest').style.display = 'block';
 
         } else {
             alert('Login failed: ' + data.message);
@@ -167,6 +166,8 @@ export function logout() {
             alert('Logout successful');
             document.getElementById('loginForm').style.display = 'block';
             document.getElementById('userGreeting').style.display = 'none';
+            document.getElementById('openAIRequest').style.display = 'none';
+            document.getElementById('addRecipeForm').style.display = 'none';
 
         } else {
             alert('Logout failed: ' + data.message);
@@ -247,6 +248,8 @@ export function hideRegForm() {
     document.getElementById('registerForm').style.display = 'none';
     document.getElementById('searchArea').style.display = 'block';
     document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('passwordError').style.display = 'none';
+    document.getElementById('emailError').style.display = 'none';
 }
 
 
