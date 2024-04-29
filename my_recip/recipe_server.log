@@ -48101,3 +48101,2658 @@ Accept-Language: en-US,en;q=0.9,ru;q=0.8
 
 
 2024-04-29 13:04:41,643 - 127.0.0.1 - - [29/Apr/2024 13:04:41] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:11:41,477 - 127.0.0.1 - - [29/Apr/2024 13:11:41] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:11:41,477 - 127.0.0.1 - - [29/Apr/2024 13:11:41] "GET / HTTP/1.1" 200 -
+2024-04-29 13:11:41,524 - 127.0.0.1 - - [29/Apr/2024 13:11:41] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:11:41,525 - 127.0.0.1 - - [29/Apr/2024 13:11:41] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 13:11:41,539 - 127.0.0.1 - - [29/Apr/2024 13:11:41] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:11:41,539 - 127.0.0.1 - - [29/Apr/2024 13:11:41] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 13:11:41,551 - 127.0.0.1 - - [29/Apr/2024 13:11:41] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:11:41,551 - 127.0.0.1 - - [29/Apr/2024 13:11:41] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 13:11:41,580 - 127.0.0.1 - - [29/Apr/2024 13:11:41] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:11:41,581 - 127.0.0.1 - - [29/Apr/2024 13:11:41] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:16:54,976 - 127.0.0.1 - - [29/Apr/2024 13:16:54] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:54,976 - 127.0.0.1 - - [29/Apr/2024 13:16:54] "GET / HTTP/1.1" 200 -
+2024-04-29 13:16:55,042 - 127.0.0.1 - - [29/Apr/2024 13:16:55] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:55,042 - 127.0.0.1 - - [29/Apr/2024 13:16:55] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 13:16:55,059 - 127.0.0.1 - - [29/Apr/2024 13:16:55] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:55,059 - 127.0.0.1 - - [29/Apr/2024 13:16:55] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 13:16:55,109 - 127.0.0.1 - - [29/Apr/2024 13:16:55] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:55,110 - 127.0.0.1 - - [29/Apr/2024 13:16:55] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 13:16:55,168 - 127.0.0.1 - - [29/Apr/2024 13:16:55] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:55,169 - 127.0.0.1 - - [29/Apr/2024 13:16:55] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:16:55,924 - 127.0.0.1 - - [29/Apr/2024 13:16:55] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:55,924 - 127.0.0.1 - - [29/Apr/2024 13:16:55] "GET / HTTP/1.1" 200 -
+2024-04-29 13:16:56,057 - 127.0.0.1 - - [29/Apr/2024 13:16:56] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:56,057 - 127.0.0.1 - - [29/Apr/2024 13:16:56] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 13:16:56,067 - 127.0.0.1 - - [29/Apr/2024 13:16:56] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:56,068 - 127.0.0.1 - - [29/Apr/2024 13:16:56] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 13:16:56,078 - 127.0.0.1 - - [29/Apr/2024 13:16:56] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:56,078 - 127.0.0.1 - - [29/Apr/2024 13:16:56] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 13:16:56,100 - 127.0.0.1 - - [29/Apr/2024 13:16:56] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:16:56,101 - 127.0.0.1 - - [29/Apr/2024 13:16:56] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:17:01,541 - 127.0.0.1 - - [29/Apr/2024 13:17:01] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:17:01,544 - 127.0.0.1 - - [29/Apr/2024 13:17:01] "POST /login HTTP/1.1" 200 -
+2024-04-29 13:17:08,566 - 127.0.0.1 - - [29/Apr/2024 13:17:08] GET request,
+Path: /logout
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:17:08,567 - 127.0.0.1 - - [29/Apr/2024 13:17:08] "GET /logout HTTP/1.1" 200 -
+2024-04-29 13:17:14,461 - 127.0.0.1 - - [29/Apr/2024 13:17:14] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 31
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:17:14,463 - 127.0.0.1 - - [29/Apr/2024 13:17:14] "POST /login HTTP/1.1" 401 -
+2024-04-29 13:19:20,302 - 127.0.0.1 - - [29/Apr/2024 13:19:20] POST request,
+Path: /register
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 68
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:19:20,307 - 127.0.0.1 - - [29/Apr/2024 13:19:20] "POST /register HTTP/1.1" 200 -
+2024-04-29 13:19:33,137 - 127.0.0.1 - - [29/Apr/2024 13:19:33] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:19:33,139 - 127.0.0.1 - - [29/Apr/2024 13:19:33] "POST /login HTTP/1.1" 200 -
+2024-04-29 13:20:54,137 - 127.0.0.1 - - [29/Apr/2024 13:20:54] GET request,
+Path: /logout
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:20:54,138 - 127.0.0.1 - - [29/Apr/2024 13:20:54] "GET /logout HTTP/1.1" 200 -
+2024-04-29 13:48:33,954 - 127.0.0.1 - - [29/Apr/2024 13:48:33] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:48:33,954 - 127.0.0.1 - - [29/Apr/2024 13:48:33] "GET / HTTP/1.1" 200 -
+2024-04-29 13:48:34,054 - 127.0.0.1 - - [29/Apr/2024 13:48:34] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:48:34,055 - 127.0.0.1 - - [29/Apr/2024 13:48:34] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 13:48:34,083 - 127.0.0.1 - - [29/Apr/2024 13:48:34] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:48:34,084 - 127.0.0.1 - - [29/Apr/2024 13:48:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 13:48:34,096 - 127.0.0.1 - - [29/Apr/2024 13:48:34] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:48:34,096 - 127.0.0.1 - - [29/Apr/2024 13:48:34] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 13:48:34,134 - 127.0.0.1 - - [29/Apr/2024 13:48:34] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:49:18,180 - 127.0.0.1 - - [29/Apr/2024 13:49:18] POST request,
+Path: /register
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 68
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:49:18,187 - 127.0.0.1 - - [29/Apr/2024 13:49:18] "POST /register HTTP/1.1" 200 -
+2024-04-29 13:49:32,206 - 127.0.0.1 - - [29/Apr/2024 13:49:32] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:49:32,206 - 127.0.0.1 - - [29/Apr/2024 13:49:32] "POST /login HTTP/1.1" 200 -
+2024-04-29 13:49:47,296 - 127.0.0.1 - - [29/Apr/2024 13:49:47] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:49:47,298 - 127.0.0.1 - - [29/Apr/2024 13:49:47] "POST /recipes/add HTTP/1.1" 500 -
+2024-04-29 13:51:44,781 - 127.0.0.1 - - [29/Apr/2024 13:51:44] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:51:44,781 - 127.0.0.1 - - [29/Apr/2024 13:51:44] "GET / HTTP/1.1" 200 -
+2024-04-29 13:51:44,813 - 127.0.0.1 - - [29/Apr/2024 13:51:44] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:51:44,813 - 127.0.0.1 - - [29/Apr/2024 13:51:44] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 13:51:44,826 - 127.0.0.1 - - [29/Apr/2024 13:51:44] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:51:44,826 - 127.0.0.1 - - [29/Apr/2024 13:51:44] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 13:51:44,842 - 127.0.0.1 - - [29/Apr/2024 13:51:44] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:51:44,842 - 127.0.0.1 - - [29/Apr/2024 13:51:44] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 13:51:44,865 - 127.0.0.1 - - [29/Apr/2024 13:51:44] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:51:44,866 - 127.0.0.1 - - [29/Apr/2024 13:51:44] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:52:00,407 - 127.0.0.1 - - [29/Apr/2024 13:52:00] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:52:00,410 - 127.0.0.1 - - [29/Apr/2024 13:52:00] "POST /login HTTP/1.1" 401 -
+2024-04-29 13:52:16,936 - 127.0.0.1 - - [29/Apr/2024 13:52:16] POST request,
+Path: /register
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 68
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:52:16,942 - 127.0.0.1 - - [29/Apr/2024 13:52:16] "POST /register HTTP/1.1" 200 -
+2024-04-29 13:52:23,091 - 127.0.0.1 - - [29/Apr/2024 13:52:23] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:52:23,093 - 127.0.0.1 - - [29/Apr/2024 13:52:23] "POST /login HTTP/1.1" 200 -
+2024-04-29 13:52:46,020 - 127.0.0.1 - - [29/Apr/2024 13:52:46] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:52:46,026 - 127.0.0.1 - - [29/Apr/2024 13:52:46] "POST /recipes/add HTTP/1.1" 201 -
+2024-04-29 13:52:46,073 - 127.0.0.1 - - [29/Apr/2024 13:52:46] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:52:46,076 - 127.0.0.1 - - [29/Apr/2024 13:52:46] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 13:53:11,200 - 127.0.0.1 - - [29/Apr/2024 13:53:11] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:53:11,203 - 127.0.0.1 - - [29/Apr/2024 13:53:11] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 13:53:19,655 - 127.0.0.1 - - [29/Apr/2024 13:53:19] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:53:19,662 - 127.0.0.1 - - [29/Apr/2024 13:53:19] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 13:53:23,017 - 127.0.0.1 - - [29/Apr/2024 13:53:23] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:53:23,022 - 127.0.0.1 - - [29/Apr/2024 13:53:23] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 13:53:47,609 - 127.0.0.1 - - [29/Apr/2024 13:53:47] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:53:47,616 - 127.0.0.1 - - [29/Apr/2024 13:53:47] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 13:53:50,254 - 127.0.0.1 - - [29/Apr/2024 13:53:50] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 13:53:50,254 - 127.0.0.1 - - [29/Apr/2024 13:53:50] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:19:46,203 - 127.0.0.1 - - [29/Apr/2024 14:19:46] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:46,204 - 127.0.0.1 - - [29/Apr/2024 14:19:46] "GET / HTTP/1.1" 200 -
+2024-04-29 14:19:46,327 - 127.0.0.1 - - [29/Apr/2024 14:19:46] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:46,328 - 127.0.0.1 - - [29/Apr/2024 14:19:46] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:19:46,346 - 127.0.0.1 - - [29/Apr/2024 14:19:46] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:46,347 - 127.0.0.1 - - [29/Apr/2024 14:19:46] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:19:46,401 - 127.0.0.1 - - [29/Apr/2024 14:19:46] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:46,401 - 127.0.0.1 - - [29/Apr/2024 14:19:46] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:19:46,463 - 127.0.0.1 - - [29/Apr/2024 14:19:46] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:46,464 - 127.0.0.1 - - [29/Apr/2024 14:19:46] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:19:55,806 - 127.0.0.1 - - [29/Apr/2024 14:19:55] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:19:55,807 - 127.0.0.1 - - [29/Apr/2024 14:19:55] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:20:06,776 - 127.0.0.1 - - [29/Apr/2024 14:20:06] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:06,783 - 127.0.0.1 - - [29/Apr/2024 14:20:06] "POST /recipes/add HTTP/1.1" 201 -
+2024-04-29 14:20:06,856 - 127.0.0.1 - - [29/Apr/2024 14:20:06] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:06,858 - 127.0.0.1 - - [29/Apr/2024 14:20:06] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:20:14,936 - 127.0.0.1 - - [29/Apr/2024 14:20:14] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:14,939 - 127.0.0.1 - - [29/Apr/2024 14:20:14] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:20:21,453 - 127.0.0.1 - - [29/Apr/2024 14:20:21] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:21,457 - 127.0.0.1 - - [29/Apr/2024 14:20:21] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:20:53,474 - 127.0.0.1 - - [29/Apr/2024 14:20:53] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:53,477 - 127.0.0.1 - - [29/Apr/2024 14:20:53] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:20:54,707 - 127.0.0.1 - - [29/Apr/2024 14:20:54] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:20:54,713 - 127.0.0.1 - - [29/Apr/2024 14:20:54] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:21:03,050 - 127.0.0.1 - - [29/Apr/2024 14:21:03] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:03,057 - 127.0.0.1 - - [29/Apr/2024 14:21:03] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:21:07,870 - 127.0.0.1 - - [29/Apr/2024 14:21:07] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:07,870 - 127.0.0.1 - - [29/Apr/2024 14:21:07] "GET / HTTP/1.1" 200 -
+2024-04-29 14:21:07,939 - 127.0.0.1 - - [29/Apr/2024 14:21:07] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:07,939 - 127.0.0.1 - - [29/Apr/2024 14:21:07] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:21:07,960 - 127.0.0.1 - - [29/Apr/2024 14:21:07] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:07,960 - 127.0.0.1 - - [29/Apr/2024 14:21:07] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:21:07,979 - 127.0.0.1 - - [29/Apr/2024 14:21:07] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:07,980 - 127.0.0.1 - - [29/Apr/2024 14:21:07] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:21:08,067 - 127.0.0.1 - - [29/Apr/2024 14:21:08] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:21:08,068 - 127.0.0.1 - - [29/Apr/2024 14:21:08] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:22:42,382 - 127.0.0.1 - - [29/Apr/2024 14:22:42] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:22:42,383 - 127.0.0.1 - - [29/Apr/2024 14:22:42] "GET / HTTP/1.1" 200 -
+2024-04-29 14:22:42,431 - 127.0.0.1 - - [29/Apr/2024 14:22:42] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:22:42,431 - 127.0.0.1 - - [29/Apr/2024 14:22:42] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:22:42,443 - 127.0.0.1 - - [29/Apr/2024 14:22:42] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:22:42,443 - 127.0.0.1 - - [29/Apr/2024 14:22:42] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:22:42,456 - 127.0.0.1 - - [29/Apr/2024 14:22:42] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:22:42,456 - 127.0.0.1 - - [29/Apr/2024 14:22:42] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:22:42,481 - 127.0.0.1 - - [29/Apr/2024 14:22:42] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:22:42,481 - 127.0.0.1 - - [29/Apr/2024 14:22:42] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:22:48,896 - 127.0.0.1 - - [29/Apr/2024 14:22:48] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:43,736 - 127.0.0.1 - - [29/Apr/2024 14:26:43] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,832 - 127.0.0.1 - - [29/Apr/2024 14:26:46] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,832 - 127.0.0.1 - - [29/Apr/2024 14:26:46] "GET / HTTP/1.1" 200 -
+2024-04-29 14:26:46,868 - 127.0.0.1 - - [29/Apr/2024 14:26:46] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,869 - 127.0.0.1 - - [29/Apr/2024 14:26:46] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:26:46,880 - 127.0.0.1 - - [29/Apr/2024 14:26:46] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,880 - 127.0.0.1 - - [29/Apr/2024 14:26:46] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:26:46,893 - 127.0.0.1 - - [29/Apr/2024 14:26:46] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,893 - 127.0.0.1 - - [29/Apr/2024 14:26:46] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:26:46,919 - 127.0.0.1 - - [29/Apr/2024 14:26:46] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:26:46,920 - 127.0.0.1 - - [29/Apr/2024 14:26:46] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:26:52,717 - 127.0.0.1 - - [29/Apr/2024 14:26:52] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,241 - 127.0.0.1 - - [29/Apr/2024 14:27:49] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,242 - 127.0.0.1 - - [29/Apr/2024 14:27:49] "GET / HTTP/1.1" 200 -
+2024-04-29 14:27:49,307 - 127.0.0.1 - - [29/Apr/2024 14:27:49] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,308 - 127.0.0.1 - - [29/Apr/2024 14:27:49] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:27:49,320 - 127.0.0.1 - - [29/Apr/2024 14:27:49] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,320 - 127.0.0.1 - - [29/Apr/2024 14:27:49] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:27:49,334 - 127.0.0.1 - - [29/Apr/2024 14:27:49] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,334 - 127.0.0.1 - - [29/Apr/2024 14:27:49] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:27:49,388 - 127.0.0.1 - - [29/Apr/2024 14:27:49] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:27:49,389 - 127.0.0.1 - - [29/Apr/2024 14:27:49] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:27:56,484 - 127.0.0.1 - - [29/Apr/2024 14:27:56] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:35,924 - 127.0.0.1 - - [29/Apr/2024 14:28:35] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:35,924 - 127.0.0.1 - - [29/Apr/2024 14:28:35] "GET / HTTP/1.1" 200 -
+2024-04-29 14:28:35,984 - 127.0.0.1 - - [29/Apr/2024 14:28:35] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:35,984 - 127.0.0.1 - - [29/Apr/2024 14:28:35] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:28:36,009 - 127.0.0.1 - - [29/Apr/2024 14:28:36] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:36,009 - 127.0.0.1 - - [29/Apr/2024 14:28:36] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:28:36,034 - 127.0.0.1 - - [29/Apr/2024 14:28:36] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:36,034 - 127.0.0.1 - - [29/Apr/2024 14:28:36] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:28:36,122 - 127.0.0.1 - - [29/Apr/2024 14:28:36] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:28:36,124 - 127.0.0.1 - - [29/Apr/2024 14:28:36] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:28:41,860 - 127.0.0.1 - - [29/Apr/2024 14:28:41] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:30:56,637 - 127.0.0.1 - - [29/Apr/2024 14:30:56] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:30:56,639 - 127.0.0.1 - - [29/Apr/2024 14:30:56] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:31:39,013 - 127.0.0.1 - - [29/Apr/2024 14:31:39] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:39,017 - 127.0.0.1 - - [29/Apr/2024 14:31:39] "POST /recipes/add HTTP/1.1" 201 -
+2024-04-29 14:31:39,059 - 127.0.0.1 - - [29/Apr/2024 14:31:39] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:39,061 - 127.0.0.1 - - [29/Apr/2024 14:31:39] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:31:44,364 - 127.0.0.1 - - [29/Apr/2024 14:31:44] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:44,370 - 127.0.0.1 - - [29/Apr/2024 14:31:44] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:31:48,792 - 127.0.0.1 - - [29/Apr/2024 14:31:48] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:48,792 - 127.0.0.1 - - [29/Apr/2024 14:31:48] "GET / HTTP/1.1" 200 -
+2024-04-29 14:31:48,881 - 127.0.0.1 - - [29/Apr/2024 14:31:48] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:48,881 - 127.0.0.1 - - [29/Apr/2024 14:31:48] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:31:48,897 - 127.0.0.1 - - [29/Apr/2024 14:31:48] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:48,897 - 127.0.0.1 - - [29/Apr/2024 14:31:48] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:31:48,910 - 127.0.0.1 - - [29/Apr/2024 14:31:48] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:48,910 - 127.0.0.1 - - [29/Apr/2024 14:31:48] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:31:48,936 - 127.0.0.1 - - [29/Apr/2024 14:31:48] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:48,937 - 127.0.0.1 - - [29/Apr/2024 14:31:48] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:31:59,163 - 127.0.0.1 - - [29/Apr/2024 14:31:59] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:31:59,166 - 127.0.0.1 - - [29/Apr/2024 14:31:59] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:32:02,116 - 127.0.0.1 - - [29/Apr/2024 14:32:02] GET request,
+Path: /logout
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:02,117 - 127.0.0.1 - - [29/Apr/2024 14:32:02] "GET /logout HTTP/1.1" 200 -
+2024-04-29 14:32:14,256 - 127.0.0.1 - - [29/Apr/2024 14:32:14] POST request,
+Path: /register
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 68
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:14,260 - 127.0.0.1 - - [29/Apr/2024 14:32:14] "POST /register HTTP/1.1" 200 -
+2024-04-29 14:32:27,275 - 127.0.0.1 - - [29/Apr/2024 14:32:27] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:27,276 - 127.0.0.1 - - [29/Apr/2024 14:32:27] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:32:36,354 - 127.0.0.1 - - [29/Apr/2024 14:32:36] POST request,
+Path: /recipes/rate/1
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 14
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:36,359 - 127.0.0.1 - - [29/Apr/2024 14:32:36] "POST /recipes/rate/1 HTTP/1.1" 200 -
+2024-04-29 14:32:40,008 - 127.0.0.1 - - [29/Apr/2024 14:32:40] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:40,009 - 127.0.0.1 - - [29/Apr/2024 14:32:40] "GET / HTTP/1.1" 200 -
+2024-04-29 14:32:40,060 - 127.0.0.1 - - [29/Apr/2024 14:32:40] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:40,060 - 127.0.0.1 - - [29/Apr/2024 14:32:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:32:40,076 - 127.0.0.1 - - [29/Apr/2024 14:32:40] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:40,076 - 127.0.0.1 - - [29/Apr/2024 14:32:40] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:32:40,090 - 127.0.0.1 - - [29/Apr/2024 14:32:40] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:40,090 - 127.0.0.1 - - [29/Apr/2024 14:32:40] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:32:40,122 - 127.0.0.1 - - [29/Apr/2024 14:32:40] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:32:40,122 - 127.0.0.1 - - [29/Apr/2024 14:32:40] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:41:34,266 - 127.0.0.1 - - [29/Apr/2024 14:41:34] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:34,266 - 127.0.0.1 - - [29/Apr/2024 14:41:34] "GET / HTTP/1.1" 200 -
+2024-04-29 14:41:34,292 - 127.0.0.1 - - [29/Apr/2024 14:41:34] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:34,293 - 127.0.0.1 - - [29/Apr/2024 14:41:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:41:34,304 - 127.0.0.1 - - [29/Apr/2024 14:41:34] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:34,305 - 127.0.0.1 - - [29/Apr/2024 14:41:34] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:41:34,316 - 127.0.0.1 - - [29/Apr/2024 14:41:34] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:34,316 - 127.0.0.1 - - [29/Apr/2024 14:41:34] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:41:34,342 - 127.0.0.1 - - [29/Apr/2024 14:41:34] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:34,343 - 127.0.0.1 - - [29/Apr/2024 14:41:34] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:41:44,639 - 127.0.0.1 - - [29/Apr/2024 14:41:44] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 39
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:44,641 - 127.0.0.1 - - [29/Apr/2024 14:41:44] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:41:59,370 - 127.0.0.1 - - [29/Apr/2024 14:41:59] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:59,377 - 127.0.0.1 - - [29/Apr/2024 14:41:59] "POST /recipes/add HTTP/1.1" 201 -
+2024-04-29 14:41:59,411 - 127.0.0.1 - - [29/Apr/2024 14:41:59] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:41:59,413 - 127.0.0.1 - - [29/Apr/2024 14:41:59] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:42:05,617 - 127.0.0.1 - - [29/Apr/2024 14:42:05] GET request,
+Path: /logout
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:42:05,618 - 127.0.0.1 - - [29/Apr/2024 14:42:05] "GET /logout HTTP/1.1" 200 -
+2024-04-29 14:42:34,028 - 127.0.0.1 - - [29/Apr/2024 14:42:34] POST request,
+Path: /register
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 68
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:42:34,032 - 127.0.0.1 - - [29/Apr/2024 14:42:34] "POST /register HTTP/1.1" 200 -
+2024-04-29 14:42:47,431 - 127.0.0.1 - - [29/Apr/2024 14:42:47] POST request,
+Path: /login
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 43
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:42:47,433 - 127.0.0.1 - - [29/Apr/2024 14:42:47] "POST /login HTTP/1.1" 200 -
+2024-04-29 14:43:11,054 - 127.0.0.1 - - [29/Apr/2024 14:43:11] POST request,
+Path: /recipes/add
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Content-Length: 77
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-platform: "Linux"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://localhost:8444
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:11,061 - 127.0.0.1 - - [29/Apr/2024 14:43:11] "POST /recipes/add HTTP/1.1" 201 -
+2024-04-29 14:43:11,139 - 127.0.0.1 - - [29/Apr/2024 14:43:11] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:11,140 - 127.0.0.1 - - [29/Apr/2024 14:43:11] "GET /recipes HTTP/1.1" 200 -
+2024-04-29 14:43:14,607 - 127.0.0.1 - - [29/Apr/2024 14:43:14] GET request,
+Path: /
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Linux"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:14,607 - 127.0.0.1 - - [29/Apr/2024 14:43:14] "GET / HTTP/1.1" 200 -
+2024-04-29 14:43:14,694 - 127.0.0.1 - - [29/Apr/2024 14:43:14] GET request,
+Path: /static/css/style.css
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:14,694 - 127.0.0.1 - - [29/Apr/2024 14:43:14] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-04-29 14:43:14,712 - 127.0.0.1 - - [29/Apr/2024 14:43:14] GET request,
+Path: /static/js/main.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:14,712 - 127.0.0.1 - - [29/Apr/2024 14:43:14] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-04-29 14:43:14,725 - 127.0.0.1 - - [29/Apr/2024 14:43:14] GET request,
+Path: /static/js/module.js
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+Origin: https://localhost:8444
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: script
+Referer: https://localhost:8444/static/js/main.js
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:14,725 - 127.0.0.1 - - [29/Apr/2024 14:43:14] "GET /static/js/module.js HTTP/1.1" 200 -
+2024-04-29 14:43:14,748 - 127.0.0.1 - - [29/Apr/2024 14:43:14] GET request,
+Path: /recipes
+Headers:
+Host: localhost:8444
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Linux"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://localhost:8444/
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+
+
+
+2024-04-29 14:43:14,749 - 127.0.0.1 - - [29/Apr/2024 14:43:14] "GET /recipes HTTP/1.1" 200 -

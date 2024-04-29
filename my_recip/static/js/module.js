@@ -105,7 +105,7 @@ export function submitAddRecipeForm(event) {
         tags: event.target.tags.value.split(',').map(tag => tag.trim()), // Split comma-separated tags and trim whitespace
         ingredients: event.target.ingredients.value.split(',').map(ingredient => ingredient.trim()),
         instructions: event.target.instructions.value.split(',').map(instruction => instruction.trim()),
-        rating: 5, // Default rating
+        rating: 4, // Default rating
     };
     fetch('/recipes/add', {
         method: 'POST',

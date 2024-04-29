@@ -1,6 +1,7 @@
 import sqlite3
 import json
-from datetime import datetime
+import hashlib
+
 
 def create_table():
     # Establish connection to the SQLite database
@@ -24,29 +25,35 @@ def create_table():
         CREATE TABLE IF NOT EXISTS recipe_ratings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             recipe_id INTEGER,
+            user_id INTEGER,
             rating INTEGER,
             rated_on TEXT,
-            FOREIGN KEY (recipe_id) REFERENCES recipes (id)
+            FOREIGN KEY (recipe_id) REFERENCES recipes(id),
+            FOREIGN KEY (user_id) REFERENCES users(id)
         );
     ''')
     
+
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            role TEXT NOT NULL DEFAULT 'viewer'            )
+    ''')
+
+    c.execute('SELECT * FROM users WHERE username=?', ('admin',))
+    if c.fetchone() is None:
+            # Insert default admin user
+            hashed_password = hashlib.sha256("admin".encode()).hexdigest()
+            c.execute('INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, ?)', ('admin', hashed_password, 'admin@recip.com', 'admin'))
+
+
     # Commit the changes and close the connection to the database
     conn.commit()
     conn.close()
 
-def insert_initial_data():
-    current_date_iso = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    recipes = [
-        # Your recipe data here
-    ]
-
-    conn = sqlite3.connect('recipes.db')
-    c = conn.cursor()
-    for recipe in recipes:
-        c.execute('INSERT INTO recipes (name, tags, ingredients, instructions, rating) VALUES (?, ?, ?, ?, ?)',
-                  (recipe["name"], json.dumps(recipe["tags"]), json.dumps(recipe["ingredients"]), json.dumps(recipe["instructions"]), recipe["rating"], ))
-    conn.commit()
-    conn.close()
 
 def print_all_recipes():
     conn = sqlite3.connect('recipes.db')
@@ -66,6 +73,6 @@ def print_all_recipes():
 
 if __name__ == '__main__':
     create_table()
-    insert_initial_data()
     print_all_recipes()
     print("Database initialized and populated with initial data.")
+

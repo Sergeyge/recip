@@ -169,7 +169,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 recipe_id = int(parts[3])
                 print("Recipe ID parsed:", recipe_id)  # Debugging statement
                 rating = data.get('rating')
-                if self.recipe_manager.rate_recipe(recipe_id, rating):
+                user_id = self.user_manager._user_id
+                print("Rating:", rating)  # Debugging statement
+                print("User ID:", user_id)  # Debugging statement
+                if self.recipe_manager.rate_recipe(recipe_id, rating, user_id):
                     self._set_headers(200)
                     self.wfile.write(json.dumps({"success": True}).encode())
                     self.end_headers()

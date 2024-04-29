@@ -38,13 +38,16 @@ class RecipeManager:
         conn.close()
         return recipes
 
-    def rate_recipe(self, recipe_id, rating):
+    def rate_recipe(self, recipe_id, rating, user_id):
         conn = self.get_db_connection()
         c = conn.cursor()
         # Current timestamp for the rating event
         rated_on = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         # Insert a new rating into the recipe_ratings table
-        c.execute("INSERT INTO recipe_ratings (recipe_id, rating, rated_on) VALUES (?, ?, ?)", (recipe_id, rating, rated_on))
+        c.execute('''
+            INSERT INTO recipe_ratings (recipe_id, user_id, rating, rated_on)
+            VALUES (?, ?, ?, ?)
+        ''', (recipe_id, user_id, rating, rated_on))
         conn.commit()
         row_id = c.lastrowid  # Get the last inserted id
         conn.close()
