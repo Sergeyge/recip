@@ -2,11 +2,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import os
 import ssl
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse
 from statistics_manager import ServerStats
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
-    stats_manager = ServerStats()  # Assuming you've imported ServerStats
+    stats_manager = ServerStats()  
 
 
     def do_GET(self):
@@ -54,13 +54,15 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
 
     # Add other methods and functionalities as needed
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8443):
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8443, statistics_db=ServerStats):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
 
+    statistics_db().init_db()
+    
     # Wrap the server socket in the context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 

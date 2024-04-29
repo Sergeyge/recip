@@ -5,7 +5,7 @@ from urllib.parse import urlparse, parse_qs
 import requests
 from statistics_manager import ServerStats
 from recipe_manager import RecipeManager
-
+import re
 import os
 import logging
 import ssl
@@ -28,11 +28,12 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-        self.stats.increment_request_count('GET', self.client_address, user_agent, self.user_manager._logged_in)
 
         self.log_message("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         parsed_path = urlparse(self.path)
         path = parsed_path.path
+        if not re.search(r'\.[a-zA-Z0-9]+$', path):
+            self.stats.increment_request_count('POST', self.client_address, user_agent, path, self.user_manager._logged_in)        
         if path == '/':
             self.serve_file('templates/index.html', 'text/html')
         elif path.startswith('/static/'):
@@ -46,7 +47,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-        self.stats.increment_request_count('POST', self.client_address, user_agent, self.user_manager._logged_in)
         self.log_message("POST request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         
         content_length = int(self.headers['Content-Length'])
@@ -55,7 +55,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         path = parsed_path.path
         print("Path:", path)
-
+        if not re.search(r'\.[a-zA-Z0-9]+$', path):
+            self.stats.increment_request_count('POST', self.client_address, user_agent, path, self.user_manager._logged_in)
         if path == '/login':
             self.handle_login(data)
         elif path == '/recipes/add':

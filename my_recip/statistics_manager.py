@@ -4,7 +4,6 @@ import datetime
 class ServerStats:
     def __init__(self, db_path='server_stats.db'):
         self.db_path = db_path
-        self.init_db()
 
     def init_db(self):
         conn = sqlite3.connect(self.db_path)
@@ -17,22 +16,24 @@ class ServerStats:
                 ip TEXT,
                 port INTEGER,
                 user_agent TEXT,
+                api TEXT,
                 is_registered BOOLEAN                  
             )
         ''')
         conn.commit()
         conn.close()
+        print('Database initialized')
 
 
-    def increment_request_count(self, method, client_address, user_agent, is_registered):
+    def increment_request_count(self, method, client_address, user_agent, api, is_registered):
         ip, port = client_address
         timestamp = datetime.datetime.now().isoformat()
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
         c.execute('''
-            INSERT INTO requests (method, timestamp, ip, port, user_agent, is_registered)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (method, timestamp, ip, port, user_agent, is_registered))
+            INSERT INTO requests (method, timestamp, ip, port, user_agent, api, is_registered)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (method, timestamp, ip, port, user_agent, api, is_registered))
         conn.commit()
         conn.close()
 
@@ -47,6 +48,15 @@ class ServerStats:
         methods_count = c.fetchall()
         stats_data['methods'] = [{'method': method, 'count': count} for method, count in methods_count]
 
+        # API usage statistics, simplified to count total requests per API only
+        c.execute('''
+            SELECT api, COUNT(*) AS total_requests
+            FROM requests
+            GROUP BY api
+        ''')
+        api_stats = c.fetchall()
+        stats_data['api_usage'] = [{'api': api, 'total_requests': total}
+                                for api, total in api_stats]
         # Top User-Agents
         c.execute('SELECT user_agent, COUNT(*) FROM requests GROUP BY user_agent ORDER BY COUNT(*) DESC LIMIT 5')
         user_agents = c.fetchall()
@@ -73,11 +83,6 @@ class ServerStats:
             ip_data['details']['user_agents'] = [{'user_agent': user_agent, 'count': count} for user_agent, count in c.fetchall()]
             ips_stats.append(ip_data)
         
-        stats_data['ips'] = ips_stats
-        conn.close()
-        return stats_data
-
-
         stats_data['ips'] = ips_stats
         conn.close()
         return stats_data
