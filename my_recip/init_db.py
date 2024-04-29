@@ -3,8 +3,11 @@ import json
 from datetime import datetime
 
 def create_table():
+    # Establish connection to the SQLite database
     conn = sqlite3.connect('recipes.db')
     c = conn.cursor()
+    
+    # Create the first table for recipes
     c.execute('''
         CREATE TABLE IF NOT EXISTS recipes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,10 +15,22 @@ def create_table():
             tags TEXT,
             ingredients TEXT,
             instructions TEXT,
-            rating INTEGER DEFAULT 0,
             date_created TEXT
-        )
+        );
     ''')
+    
+    # Create the second table for recipe ratings
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS recipe_ratings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            recipe_id INTEGER,
+            rating INTEGER,
+            rated_on TEXT,
+            FOREIGN KEY (recipe_id) REFERENCES recipes (id)
+        );
+    ''')
+    
+    # Commit the changes and close the connection to the database
     conn.commit()
     conn.close()
 

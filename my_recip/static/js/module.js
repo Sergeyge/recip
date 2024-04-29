@@ -20,7 +20,7 @@ export function fetchRecipes(tag = '') {
 
             const recipeElement = document.createElement('div');
             const ratingStars = Array.from({ length: 5 }, (_, index) => {
-                return `<button class="star" data-rating="${index + 1}" aria-label="Rate as ${index + 1}">${recipe.rating > index ? '★' : '☆'}</button>`;
+                return `<button class="star" data-rating="${index + 1}" aria-label="Rate as ${index + 1}">${recipe.average_rating > index ? '★' : '☆'}</button>`;
             }).join('');
 
             // Constructing and setting innerHTML for recipeElement

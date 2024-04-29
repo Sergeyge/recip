@@ -16,22 +16,39 @@ class RecipeManager:
         conn = self.get_db_connection()
         c = conn.cursor()
         print("Executing SELECT query...")
+        # Modified SQL query to join recipes with recipe_ratings and calculate average rating
         if tag_filter:
-            c.execute("SELECT * FROM recipes WHERE tags LIKE ?", ('%' + tag_filter + '%',))
+            c.execute("""
+                SELECT recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created, AVG(recipe_ratings.rating) AS average_rating
+                FROM recipes
+                LEFT JOIN recipe_ratings ON recipes.id = recipe_ratings.recipe_id
+                WHERE recipes.tags LIKE ?
+                GROUP BY recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created
+                """, ('%' + tag_filter + '%',))
         else:
-            c.execute("SELECT * FROM recipes")
+            c.execute("""
+                SELECT recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created, AVG(recipe_ratings.rating) AS average_rating
+                FROM recipes
+                LEFT JOIN recipe_ratings ON recipes.id = recipe_ratings.recipe_id
+                GROUP BY recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created
+                """)
+        # Fetch all rows and convert them to dictionaries to include the new average_rating field
         recipes = [dict(row) for row in c.fetchall()]
+        print("Recipes fetched:", recipes)
         conn.close()
         return recipes
 
-    def rate_recipe(self, id, rating):
+    def rate_recipe(self, recipe_id, rating):
         conn = self.get_db_connection()
         c = conn.cursor()
-        c.execute("UPDATE recipes SET rating = ? WHERE id = ?", (rating, id))
-        changes = c.rowcount
+        # Current timestamp for the rating event
+        rated_on = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # Insert a new rating into the recipe_ratings table
+        c.execute("INSERT INTO recipe_ratings (recipe_id, rating, rated_on) VALUES (?, ?, ?)", (recipe_id, rating, rated_on))
         conn.commit()
+        row_id = c.lastrowid  # Get the last inserted id
         conn.close()
-        return changes > 0
+        return row_id
 
     def add_recipe_tag(self, id, tag):
         conn = self.get_db_connection()
@@ -47,33 +64,27 @@ class RecipeManager:
                 conn.close()
                 return True
     
-    def get_recipes_by_rating(self, rating):
-        conn = self.get_db_connection()
-        c = conn.cursor()
-        c.execute('SELECT * FROM recipes WHERE rating = ?', (rating,))
-        recipes_rows = c.fetchall()
-        conn.close()
-
-        recipes = []
-        for row in recipes_rows:
-            recipe = {
-                'id': row[0],
-                'name': row[1],
-                'tags': json.loads(row[2]),
-                'ingredients': json.loads(row[3]),
-                'instructions': json.loads(row[4]),
-                'rating': row[5],
-                'date_created': row[6]                
-            }
-            recipes.append(recipe)
-        return recipes
-    
-    def add_new_recipe(self, name, tags, ingredients, instructions, rating):
+    def add_new_recipe(self, name, tags, ingredients, instructions, rating=None):
         conn = self.get_db_connection()
         date_created = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         c = conn.cursor()
-        c.execute('''INSERT INTO recipes (name, tags, ingredients, instructions, rating, date_created) 
-                     VALUES (?, ?, ?, ?, ?, ?)''', 
-                  (name, json.dumps(tags), json.dumps(ingredients), json.dumps(instructions), rating, date_created,))
+        
+        # Insert the new recipe into the recipes table
+        c.execute('''INSERT INTO recipes (name, tags, ingredients, instructions, date_created) 
+                    VALUES (?, ?, ?, ?, ?)''', 
+                (name, json.dumps(tags), json.dumps(ingredients), json.dumps(instructions), date_created))
+        recipe_id = c.lastrowid  # Get the id of the newly inserted recipe
+
+        # Set default rating if none provided
+        default_rating = 4 if rating is None else rating
+
+        # Insert the default or provided rating into the recipe_ratings table
+        rated_on = datetime.now().isoformat()  # Use a consistent datetime format for the rating timestamp
+        c.execute('''INSERT INTO recipe_ratings (recipe_id, rating, rated_on) 
+                    VALUES (?, ?, ?)''', 
+                (recipe_id, default_rating, rated_on))
+        
         conn.commit()
         conn.close()
+
+        return recipe_id
