@@ -11,6 +11,7 @@ import logging
 import ssl
 
 from user_manager import UserManager
+from Recipe_DB_Manager import RecipeDbManager 
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     stats = ServerStats()
@@ -238,14 +239,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                       self.log_date_time_string(),
                       format % args))
 
-
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8445):
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8445, start_db=RecipeDbManager):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
-
+    start_db()
     # Wrap the server socket in the context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
@@ -255,5 +255,6 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=84
     except KeyboardInterrupt:
         handler_class.stats.report()  # Report statistics upon shutdown
         httpd.server_close()
+
 if __name__ == '__main__':
     run()
