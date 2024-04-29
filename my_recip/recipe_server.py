@@ -239,7 +239,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                       format % args))
 
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8444):
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8445):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context

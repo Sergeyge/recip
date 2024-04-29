@@ -43,15 +43,32 @@ class RecipeManager:
         c = conn.cursor()
         # Current timestamp for the rating event
         rated_on = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        # Insert a new rating into the recipe_ratings table
+        
+        # Check if the user has already rated this recipe
         c.execute('''
-            INSERT INTO recipe_ratings (recipe_id, user_id, rating, rated_on)
-            VALUES (?, ?, ?, ?)
-        ''', (recipe_id, user_id, rating, rated_on))
+            SELECT id FROM recipe_ratings WHERE recipe_id = ? AND user_id = ?
+        ''', (recipe_id, user_id))
+        existing_rating = c.fetchone()
+
+        if existing_rating:
+            # Update the existing rating
+            c.execute('''
+                UPDATE recipe_ratings SET rating = ?, rated_on = ? WHERE id = ?
+            ''', (rating, rated_on, existing_rating[0]))
+            affected_row_id = existing_rating[0] 
+        else:
+            # Insert a new rating if not existing
+            c.execute('''
+                INSERT INTO recipe_ratings (recipe_id, user_id, rating, rated_on)
+                VALUES (?, ?, ?, ?)
+            ''', (recipe_id, user_id, rating, rated_on))
+            affected_row_id = c.lastrowid
+        
         conn.commit()
-        row_id = c.lastrowid  # Get the last inserted id
+        row_id = c.lastrowid  # Get the last inserted or updated id
         conn.close()
-        return row_id
+        print("row_id:", affected_row_id)
+        return affected_row_id
 
     def add_recipe_tag(self, id, tag):
         conn = self.get_db_connection()

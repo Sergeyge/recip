@@ -29,7 +29,8 @@ def create_table():
             rating INTEGER,
             rated_on TEXT,
             FOREIGN KEY (recipe_id) REFERENCES recipes(id),
-            FOREIGN KEY (user_id) REFERENCES users(id)
+            FOREIGN KEY (user_id) REFERENCES users(id),
+            UNIQUE(recipe_id, user_id)
         );
     ''')
     
