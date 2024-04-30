@@ -186,15 +186,24 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         except ValueError as e:
             self.send_error_page(404)
 
-    def handle_openai_request(self, question):
+    def handle_openai_request(self, prompt):
         if not self.user_manager._logged_in:
             self._set_headers(401)
             self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
             return        
-        print ("data = ", question)
+        print ("data = ", prompt)
         api_key = os.getenv('OPENAI_API_KEY')
         url = "https://api.openai.com/v1/chat/completions"
+        top_ingredients = self.recipe_manager.get_top_ingredients_by_user(self.user_manager._user_id)
+        print("top_ingredients = ", top_ingredients)
+            # Enhance the original prompt with the top ingredients
+        if top_ingredients:
+            ingredient_text = ', '.join(top_ingredients)
+            enhanced_prompt = f"{prompt} Incorporate these or simular ingredients: {ingredient_text}."
+        else:
+            enhanced_prompt = prompt
 
+        
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}"
@@ -209,7 +218,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 },
                 {
                     "role": "user",
-                    "content": str(question)
+                    "content": str(enhanced_prompt)
                 }
             ]
         }

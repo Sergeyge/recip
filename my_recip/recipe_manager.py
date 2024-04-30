@@ -1,6 +1,7 @@
 import sqlite3
 import json
 from datetime import datetime
+from collections import Counter
 
 class RecipeManager:
     def __init__(self, db_path='recipes.db'):
@@ -108,3 +109,24 @@ class RecipeManager:
         conn.close()
 
         return recipe_id
+
+    def get_top_ingredients_by_user(self, user_id):
+        conn = self.get_db_connection()
+        c = conn.cursor()
+        c.execute('''
+            SELECT r.ingredients
+            FROM recipes r
+            JOIN recipe_ratings rr ON r.id = rr.recipe_id
+            WHERE rr.user_id = ? AND rr.rating > 4
+        ''', (user_id,))
+        all_ingredients = []
+        for row in c.fetchall():
+            ingredients_list = json.loads(row['ingredients'])
+            all_ingredients.extend(ingredients_list)
+        conn.close()
+
+        # Count and find the top 10 most common ingredients
+        ingredient_count = Counter(all_ingredients)
+        print("ingredient_count:", ingredient_count)
+        top_ingredients = [ingredient for ingredient, count in ingredient_count.most_common(10)]
+        return top_ingredients    
