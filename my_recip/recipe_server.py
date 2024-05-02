@@ -29,11 +29,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
 
-        self.log_message("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
+        self.log_message("GET request, Path: %s\n", str(self.path))
         parsed_path = urlparse(self.path)
         path = parsed_path.path
         if not re.search(r'\.[a-zA-Z0-9]+$', path):
-            self.stats.increment_request_count('POST', self.client_address, user_agent, path, self.user_manager._logged_in)        
+            self.stats.increment_request_count('GET', self.client_address, user_agent, path, self.user_manager._logged_in)        
         if path == '/':
             self.serve_file('templates/index.html', 'text/html')
         elif path.startswith('/static/'):
@@ -47,7 +47,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-        self.log_message("POST request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
+        self.log_message("POST request, Path: %s\n", str(self.path))
         
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
@@ -56,6 +56,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         path = parsed_path.path
         print("Path:", path)
         if not re.search(r'\.[a-zA-Z0-9]+$', path):
+            # exclude static files from the request count statistics
             self.stats.increment_request_count('POST', self.client_address, user_agent, path, self.user_manager._logged_in)
         if path == '/login':
             self.handle_login(data)
@@ -254,7 +255,7 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=84
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-    context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
+    context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  
     start_db()
     # Wrap the server socket in the context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
@@ -262,8 +263,8 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=84
     print(f'Starting httpd server on port {port}')
     try:
         httpd.serve_forever()
-    except KeyboardInterrupt:
-        handler_class.stats.report()  # Report statistics upon shutdown
+    except Exception as e: 
+        print(f"Server error, An unexpected error occurred: {e}")     
         httpd.server_close()
 
 if __name__ == '__main__':

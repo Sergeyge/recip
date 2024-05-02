@@ -22,8 +22,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             stats = self.stats_manager.report()
             self.wfile.write(json.dumps(stats).encode())
-        else:
-            super().do_GET()  # Handle other GET requests normally
 
     def serve_file(self, file_path, content_type):
         try:
@@ -62,7 +60,7 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=84
     context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
 
     statistics_db().init_db()
-    
+
     # Wrap the server socket in the context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
