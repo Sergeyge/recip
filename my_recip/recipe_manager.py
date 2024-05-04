@@ -2,10 +2,11 @@ import sqlite3
 import json
 from datetime import datetime
 from collections import Counter
+from Init_Recipe_DB import RecipeDbManager
 
 class RecipeManager:
-    def __init__(self, db_path='recipes.db'):
-        self.db_path = db_path
+    def __init__(self):
+        self.db_path = RecipeDbManager().db_path
 
     def get_db_connection(self):
         conn = sqlite3.connect(self.db_path)
@@ -72,21 +73,7 @@ class RecipeManager:
         conn.close()
         print("row_id:", affected_row_id)
         return affected_row_id
-
-    def add_recipe_tag(self, id, tag):
-        conn = self.get_db_connection()
-        c = conn.cursor()
-        c.execute("SELECT tags FROM recipes WHERE id = ?", (id,))
-        result = c.fetchone()
-        if result:
-            tags = json.loads(result['tags'])
-            if tag not in tags:
-                tags.append(tag)
-                c.execute("UPDATE recipes SET tags = ? WHERE id = ?", (json.dumps(tags), id))
-                conn.commit()
-                conn.close()
-                return True
-    
+   
     def add_new_recipe(self, name, tags, ingredients, instructions, rating=None):
         conn = self.get_db_connection()
         date_created = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Use the search button to fetch recipes by tag
     searchButton.addEventListener('click', function() {
         const tag = searchTagInput.value.trim();
+        // check if the tag is empty
+        if (tag === '') {
+            alert('Please enter a tag to search for recipes.');
+            return;
+        }
         fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
     });
 

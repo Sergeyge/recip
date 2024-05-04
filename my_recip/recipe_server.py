@@ -1,19 +1,18 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import json
-from urllib.parse import urlparse, parse_qs
 
+import json
 import requests
-from statistics_manager import ServerStats
-from recipe_manager import RecipeManager
 import re
 import os
 import logging
 import ssl
-
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from statistics_manager import ServerStats
+from recipe_manager import RecipeManager
+from urllib.parse import urlparse, parse_qs
 from user_manager import UserManager
-from Recipe_DB_Manager import RecipeDbManager 
+from Init_Recipe_DB import RecipeDbManager 
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
     stats = ServerStats()
     recipe_manager = RecipeManager()
     user_manager = UserManager()
@@ -79,6 +78,14 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def handle_login(self, data):
         username = data.get('username')
         password = data.get('password')
+        # ckeck the input data
+        if not all([username, password]):
+            self.send_response(400)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({'error': False, 'message': 'Missing username or password'}).encode())
+            return
+        
         if self.user_manager.check_credentials(username, password):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -200,7 +207,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             # Enhance the original prompt with the top ingredients
         if top_ingredients:
             ingredient_text = ', '.join(top_ingredients)
-            enhanced_prompt = f"{prompt} Incorporate these or simular ingredients: {ingredient_text}."
+            enhanced_prompt = f"{prompt} Incorporate only few ingredients from the list: {ingredient_text}."
         else:
             enhanced_prompt = prompt
 
@@ -250,7 +257,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                       self.log_date_time_string(),
                       format % args))
 
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8445, start_db=RecipeDbManager):
+def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8443, start_db=RecipeDbManager):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context

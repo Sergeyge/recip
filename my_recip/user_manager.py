@@ -1,6 +1,7 @@
 import sqlite3
 import hashlib
 import re
+from Init_Recipe_DB import RecipeDbManager
 
 def is_valid_email(email):
     """ Validate email format using regular expression. """
@@ -11,10 +12,10 @@ def is_valid_password(password):
     return re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$', password) is not None
 
 class UserManager:
-    def __init__(self, db_path='recipes.db'):
+    def __init__(self):
         self._logged_in=False
         self._user_id=None
-        self.db_path = db_path
+        self.db_path = self.db_path = RecipeDbManager().db_path
 
     def check_credentials(self, username, password):
         password = self.hash_password(password)
@@ -56,6 +57,4 @@ class UserManager:
         # Use hashlib to create a hash of the password for security reasons.
         # This is a simple implementation.
         return hashlib.sha256(password.encode()).hexdigest()
-    
 
-    # Add other user management methods as needed

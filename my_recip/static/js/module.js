@@ -129,6 +129,11 @@ export function submitAddRecipeForm(event) {
 export function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+    // validate username and password
+    if (!username || !password) {
+        alert('Please enter a username and password.');
+        return;
+    }
 
     fetch('/login', {
         method: 'POST',
@@ -211,7 +216,7 @@ export function register() {
     // validate username and password
     if (!validatePassword()) {
         alert('Please ensure the password meets all requirements.');
-        return;
+        return false;
     }
 
     if (!validateEmail(email)) {

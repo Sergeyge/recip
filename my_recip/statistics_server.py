@@ -5,7 +5,7 @@ import ssl
 from urllib.parse import urlparse
 from statistics_manager import ServerStats
 
-class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+class StatisticsRequestHandler(BaseHTTPRequestHandler):
     stats_manager = ServerStats()  
 
 
@@ -51,8 +51,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         self.serve_file(file_path, content_type)
 
 
-    # Add other methods and functionalities as needed
-def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler, port=8443, statistics_db=ServerStats):
+def run(server_class=HTTPServer, handler_class=StatisticsRequestHandler, port=8443, statistics_db=ServerStats):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     # Set up an SSL context
