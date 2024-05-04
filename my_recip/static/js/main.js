@@ -1,4 +1,3 @@
-
 import {
     fetchRecipes, 
     showAddRecipeForm, 
@@ -13,6 +12,7 @@ import {
 } from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Grab references to various buttons and input fields from the DOM
     const showFormButton = document.getElementById('showFormButton');
     const addRecipeForm = document.getElementById('addRecipeForm');
     const cancelButton = document.getElementById('cancelButton');
@@ -26,9 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendToOpenAIButton = document.getElementById('sendToOpenAIButton');
     
 
+    // Initial call to fetch and display all recipes
     fetchRecipes(); // Fetch all recipes when the page loads
    
-    // Use the search button to fetch recipes by tag
+    // Add event listener to the search button to fetch recipes based on a tag
     searchButton.addEventListener('click', function() {
         const tag = searchTagInput.value.trim();
         // check if the tag is empty
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
     });
 
+    // Listener for sending a request to OpenAI with selected dietary preferences and cuisine type
     sendToOpenAIButton.addEventListener('click', function() {
         const dietCheckboxes = document.querySelectorAll('input[name="diet"]:checked');
         let diets = Array.from(dietCheckboxes).map(checkbox => checkbox.value).join(', ');
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sendToOpenAI(JSON.stringify({ prompt: promptText }))
     });
 
+    // Add event listeners for various user actions like showing forms, logging in, registering, etc.
     showFormButton.addEventListener('click', showAddRecipeForm);
     cancelButton.addEventListener('click', hideAddRecipeForm);
     addRecipeForm.addEventListener('submit', submitAddRecipeForm);    
@@ -60,3 +63,4 @@ document.addEventListener('DOMContentLoaded', function() {
     registerButton.addEventListener('click', register);
     cancelRegButton.addEventListener('click', hideRegForm);
 });
+    

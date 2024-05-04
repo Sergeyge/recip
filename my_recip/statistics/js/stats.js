@@ -13,6 +13,7 @@ function toggleSection(sectionId) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Send a request to the server to fetch statistics data
     fetch('/api/statistics')
     .then(response => response.json())
     .then(data => {

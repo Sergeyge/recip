@@ -1,7 +1,7 @@
 export function fetchRecipes(tag = '') {
     // Construct the URL based on whether a tag is provided
     const url = tag ? `/recipes?tag=${encodeURIComponent(tag)}` : '/recipes';
-
+    // Fetch recipes from the server
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -76,7 +76,6 @@ export function updateRecipeRating(recipeId, newRating) {
     .then(response => {
         if (response.ok) {
             console.log("Rating updated successfully.");
-            // Optionally, reload recipes or update the UI accordingly
         } else if (response.status === 401) {
             console.error("Failed to update rating: User is not authenticated.");
             alert("Failed to update rating: User is not authenticated.");
@@ -94,19 +93,23 @@ export function showAddRecipeForm() {
 
 export function hideAddRecipeForm() {
     console.log("Cancel button clicked");
-    addRecipeForm.style.display = 'none'; // Hide the form
+    // Hide the form
+    addRecipeForm.style.display = 'none'; 
 }
 
 export function submitAddRecipeForm(event) {
-    event.preventDefault(); // Prevent the default form submission
-
+    // Prevent the default form submission
+    event.preventDefault(); 
+    // Get the form data
     const formData = {
         name: event.target.name.value,
-        tags: event.target.tags.value.split(',').map(tag => tag.trim()), // Split comma-separated tags and trim whitespace
+        // Split comma-separated tags and trim whitespace
+        tags: event.target.tags.value.split(',').map(tag => tag.trim()), 
         ingredients: event.target.ingredients.value.split(',').map(ingredient => ingredient.trim()),
         instructions: event.target.instructions.value.split(',').map(instruction => instruction.trim()),
         rating: 4, // Default rating
     };
+    // Send the form data to the server
     fetch('/recipes/add', {
         method: 'POST',
         headers: {
@@ -114,6 +117,7 @@ export function submitAddRecipeForm(event) {
         },
         body: JSON.stringify(formData),
     })
+    // Parse the JSON response
     .then(response => response.json())
     .then(data => {
         console.log(data.message); // Log success message
@@ -122,6 +126,7 @@ export function submitAddRecipeForm(event) {
         fetchRecipes(); // Reload recipes
 
     })
+    // Log any errors
     .catch(error => console.error('Error adding recipe:', error));
 }
 
@@ -134,7 +139,7 @@ export function login() {
         alert('Please enter a username and password.');
         return;
     }
-
+    // Send the login request to the server
     fetch('/login', {
         method: 'POST',
         headers: {
@@ -142,39 +147,46 @@ export function login() {
         },
         body: JSON.stringify({ username, password })
     })
+    // Parse the JSON response
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            // Hide the login form and display the user greeting and OpenAI request form, display the username
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('usernameDisplay').textContent = username;
             document.getElementById('userGreeting').style.display = 'block';
             document.getElementById('openAIRequest').style.display = 'block';
 
         } else {
+            // Display an error message if login fails
             alert('Login failed: ' + data.message);
         }
     })
+    // Log any errors
     .catch(error => console.error('Error logging in:', error));
 }
 
 export function logout() {
-    console.log("Logout button clicked");
+    // Send a logout request to the server
     fetch('/logout', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
     })
+    // Parse the JSON response
     .then(response => response.json())
     .then(data => {
         if (data.message === 'Logout successful') {
             alert('Logout successful');
+            // Hide the user greeting, addRecipeForm and OpenAI request form, display the login form
             document.getElementById('loginForm').style.display = 'block';
             document.getElementById('userGreeting').style.display = 'none';
             document.getElementById('openAIRequest').style.display = 'none';
             document.getElementById('addRecipeForm').style.display = 'none';
 
         } else {
+            // Display an error message if logout fails
             alert('Logout failed: ' + data.message);
         }
     })
@@ -183,6 +195,7 @@ export function logout() {
 
 export function sendToOpenAI(question) {
     console.log("Send to OpenAI button clicked");
+    // Send request to the server with prompt to OpenAI
     fetch('/openai', {
         method: 'POST',
         headers: {
@@ -190,6 +203,7 @@ export function sendToOpenAI(question) {
         },
         body: question
     })
+    // Parse the JSON response
     .then(response => response.json())
     .then(data => {
         console.log('OpenAI response:', data);
@@ -204,12 +218,14 @@ export function sendToOpenAI(question) {
 
 
 export function showSignInForm() {  
+    // Hide the login and search forms, display the register form
     document.getElementById('loginForm').style.display = 'none';
     document.getElementById('searchArea').style.display = 'none';
     document.getElementById('registerForm').style.display = 'block';
 }
 
 export function register() {
+    // Get the username, password, and email from the form
     const username = document.getElementById('regUsername').value;
     const password = document.getElementById('regPassword').value;
     const email = document.getElementById('regEmail').value;
@@ -223,7 +239,7 @@ export function register() {
         alert("Please enter a valid email address.");
         return false;
     }
-
+    // Send the registration request to the server
     fetch('/register', {
         method: 'POST',
         headers: {
@@ -234,6 +250,7 @@ export function register() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            // Display a success message and hide the register form
             alert('Registration successful');
             document.getElementById('registerForm').style.display = 'none';
             document.getElementById('searchArea').style.display = 'block';
@@ -250,6 +267,7 @@ export function register() {
 }
 
 export function hideRegForm() { 
+    // Hide the register form and display the login form
     document.getElementById('registerForm').style.display = 'none';
     document.getElementById('searchArea').style.display = 'block';
     document.getElementById('loginForm').style.display = 'block';
@@ -259,6 +277,7 @@ export function hideRegForm() {
 
 
 function validatePassword() {
+    // Validate the password using a regular expression
     const password = document.getElementById('regPassword').value;
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
     const errorMessage = document.getElementById('passwordError');
@@ -273,6 +292,7 @@ function validatePassword() {
 }
 
 function validateEmail(email) {
+    // Validate the email using a regular expression
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     const errorMessage = document.getElementById('emailError');
     
@@ -283,5 +303,4 @@ function validateEmail(email) {
         errorMessage.style.display = 'block';
         return false;
     }    
-    return regex.test(email);
 }
