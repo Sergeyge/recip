@@ -13,26 +13,33 @@ from user_manager import UserManager
 from Init_Recipe_DB import RecipeDbManager 
 
 class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
+    # Create instances of the statistics, recipe, and user managers
     stats = ServerStats()
     recipe_manager = RecipeManager()
     user_manager = UserManager()
 
+    # Configure logging to file
     logging.basicConfig(filename='recipe_server.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
+    # Set common headers for responses
     def _set_headers(self, status_code=200, content_type='application/json'):
         self.send_response(status_code)
         self.send_header('Content-type', content_type)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
+    # Handle GET requests
     def do_GET(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
-
         self.log_message("GET request, Path: %s\n", str(self.path))
         parsed_path = urlparse(self.path)
         path = parsed_path.path
+
+        # Increment request count for analytics
         if not re.search(r'\.[a-zA-Z0-9]+$', path):
             self.stats.increment_request_count('GET', self.client_address, user_agent, path, self.user_manager._logged_in)        
+        
+        # Route the GET request based on the path
         if path == '/':
             self.serve_file('templates/index.html', 'text/html')
         elif path.startswith('/static/'):
@@ -44,6 +51,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         else:
             self.send_error_page(404)
 
+    # Handle POST requests
     def do_POST(self):
         user_agent = self.headers.get('User-Agent', 'Unknown')
         self.log_message("POST request, Path: %s\n", str(self.path))
@@ -53,10 +61,12 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         data = json.loads(post_data.decode())
         parsed_path = urlparse(self.path)
         path = parsed_path.path
-        print("Path:", path)
+
         if not re.search(r'\.[a-zA-Z0-9]+$', path):
             # exclude static files from the request count statistics
             self.stats.increment_request_count('POST', self.client_address, user_agent, path, self.user_manager._logged_in)
+
+        # Route the POST request based on the path
         if path == '/login':
             self.handle_login(data)
         elif path == '/recipes/add':
@@ -74,7 +84,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         else:
             print("path = ", path)
             self.send_error_page(404)
-
+    
     def handle_login(self, data):
         username = data.get('username')
         password = data.get('password')
@@ -86,6 +96,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({'error': False, 'message': 'Missing username or password'}).encode())
             return
         
+        # check the credentials
         if self.user_manager.check_credentials(username, password):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -94,12 +105,13 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             # set flag to indicate that the user is logged in
             self.user_manager.set_logged_in(username)
         else:
+            # send error message to the user
             self.send_response(401)  # Unauthorized
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({'error': False, 'message': 'Invalid username or password'}).encode())
 
-        
+    # Method to send error pages
     def send_error_page(self, status_code):
         error_file_path = f'templates/{status_code}.html'
         try:
@@ -115,6 +127,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(f"<html><body><h1>{status_code} Error</h1><p>Page not found.</p></body></html>".encode('utf-8'))
 
+    # serve static files
     def serve_static_files(self, path):
         file_path = path[1:]  # Remove the leading '/'
         file_extension = os.path.splitext(file_path)[1]
@@ -134,6 +147,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
                 self._set_headers(200, content_type)
                 self.wfile.write(file.read())
         except FileNotFoundError:
+            # If the file is not found, send a 404 error
             self.send_error_page(404)
 
     def handle_logout_request(self):
@@ -144,74 +158,86 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         
     def handle_recipes_request(self, query):
         query_components = parse_qs(query)
+        # Get the tag from the query parameters
         tag = query_components.get('tag', [None])[0]
+        # Get recipes based on the tag, or all recipes if no tag provided
         recipes = self.recipe_manager.get_all_recipes(tag)
         self._set_headers()
         self.wfile.write(json.dumps(recipes).encode())
 
     def add_recipe(self, data):
+        # check if user is logged in
         if not self.user_manager._logged_in:
             self._set_headers(401)
             self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
             return
         try:
+            # check if all required data is provided
             if not all([data.get('name'), data.get('tags'), data.get('ingredients'), data.get('instructions'), isinstance(data.get('rating'), int)]):
                 self._set_headers(400)
                 self.wfile.write(json.dumps({'error': 'Missing or invalid data for the recipe'}).encode())
                 return
+            # add new recipe
+            # **data unpacks the dictionary to pass the key-value pairs as arguments
             self.recipe_manager.add_new_recipe(**data)
             self._set_headers(201)
             self.wfile.write(json.dumps({'message': 'Recipe added successfully'}).encode())
         except Exception as e:
+            # if an error occurs, send a 500 error response
             self.send_error_page(500)
             print(e)
 
     def rate_recipe(self, path, data):
         # check if user is logged in
         if not self.user_manager._logged_in:
-            # popup message to user 
             self._set_headers(401)
             self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
             return
         try:
             parts = path.split('/')
             if len(parts) >= 4:
+                # Parse the recipe ID from the path
                 recipe_id = int(parts[3])
-                print("Recipe ID parsed:", recipe_id)  # Debugging statement
                 rating = data.get('rating')
                 user_id = self.user_manager._user_id
-                print("Rating:", rating)  # Debugging statement
-                print("User ID:", user_id)  # Debugging statement
+                # Rate the recipe
                 if self.recipe_manager.rate_recipe(recipe_id, rating, user_id):
+                    # Send a success response
                     self._set_headers(200)
                     self.wfile.write(json.dumps({"success": True}).encode())
                     self.end_headers()
                 else:
+                    # Send a 404 error in case of a failure
                     self._set_headers(404)
                     self.wfile.write(json.dumps({"error": "Recipe not found"}).encode())
             else:
+                # Send a 404 error if the path is invalid
                 raise ValueError("Invalid path format")
         except ValueError as e:
             self.send_error_page(404)
 
     def handle_openai_request(self, prompt):
+        # check if user is logged in
         if not self.user_manager._logged_in:
             self._set_headers(401)
             self.wfile.write(json.dumps({"error": False, "message": "User not logged in"}).encode())
             return        
-        print ("data = ", prompt)
+        print ("data = ", prompt) #debug
+        # Get the OpenAI API key from the environment variables
         api_key = os.getenv('OPENAI_API_KEY')
         url = "https://api.openai.com/v1/chat/completions"
+        # Get the top ingredients for the user
         top_ingredients = self.recipe_manager.get_top_ingredients_by_user(self.user_manager._user_id)
         print("top_ingredients = ", top_ingredients)
-            # Enhance the original prompt with the top ingredients
         if top_ingredients:
+            # Add the top ingredients to the prompt
             ingredient_text = ', '.join(top_ingredients)
             enhanced_prompt = f"{prompt} Incorporate only few ingredients from the list: {ingredient_text}."
         else:
+            # Use the original prompt if no top ingredients are available
             enhanced_prompt = prompt
 
-        
+        # create the request headers and data
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}"
@@ -222,7 +248,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             "messages": [
                 {
                     "role": "system",
-                    "content": "You are a helpful assistant."
+                    "content": "Provide short and simple recipes. The resipe should have a name, tags, list ingredients, and instructions"
                 },
                 {
                     "role": "user",
@@ -230,9 +256,10 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
                 }
             ]
         }
-
+        # Make a POST request to the OpenAI API
         response = requests.post(url, headers=headers, json=data)
         print ("responce=", response.content)
+        # Check if the request was successful
         if response.status_code == 200:
             response_json = response.json()
             print("response_json = ", response_json)
@@ -241,7 +268,6 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            # self.wfile.write(message_content.encode())
             self.wfile.write(json.dumps(message_content).encode())
         else:
             # Handle errors
@@ -250,7 +276,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps({"error": "Failed to process request with OpenAI"}).encode())
 
-
+    # log_message method to log the request details
     def log_message(self, format, *args):
         logging.info("%s - - [%s] %s" %
                      (self.client_address[0],
@@ -260,17 +286,21 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
 def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8443, start_db=RecipeDbManager):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    # Set up an SSL context
+
+    # SSL context setup for HTTPS
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
     context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  
+
+    # Initialize database
     start_db()
-    # Wrap the server socket in the context
+
+    # Wrap the server socket in SSL context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
-    print(f'Starting httpd server on port {port}')
+    print(f'Starting HTTP server on port {port}')
     try:
         httpd.serve_forever()
-    except Exception as e: 
+    except Exception as e:
         print(f"Server error, An unexpected error occurred: {e}")     
         httpd.server_close()
 

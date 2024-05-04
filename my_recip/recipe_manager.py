@@ -4,22 +4,27 @@ from datetime import datetime
 from collections import Counter
 from Init_Recipe_DB import RecipeDbManager
 
+# Class to manage recipes
 class RecipeManager:
     def __init__(self):
+        # Get the database path from RecipeDbManager
         self.db_path = RecipeDbManager().db_path
-
+    
+    # Method to get a database connection
     def get_db_connection(self):
         conn = sqlite3.connect(self.db_path)
         conn.row_factory = sqlite3.Row
         return conn
 
+    # Method to get all recipes from the database
     def get_all_recipes(self, tag_filter=None):
         print("Connecting to database...")
         conn = self.get_db_connection()
         c = conn.cursor()
         print("Executing SELECT query...")
-        # Modified SQL query to join recipes with recipe_ratings and calculate average rating
+        # Fetch recipes 
         if tag_filter:
+            # Filter recipes by tag
             c.execute("""
                 SELECT recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created, AVG(recipe_ratings.rating) AS average_rating
                 FROM recipes
@@ -28,13 +33,14 @@ class RecipeManager:
                 GROUP BY recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created
                 """, ('%' + tag_filter + '%',))
         else:
+            # Fetch all recipes
             c.execute("""
                 SELECT recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created, AVG(recipe_ratings.rating) AS average_rating
                 FROM recipes
                 LEFT JOIN recipe_ratings ON recipes.id = recipe_ratings.recipe_id
                 GROUP BY recipes.id, recipes.name, recipes.tags, recipes.ingredients, recipes.instructions, recipes.date_created
                 """)
-        # Fetch all rows and convert them to dictionaries to include the new average_rating field
+        # Convert the result to a list of dictionaries
         recipes = [dict(row) for row in c.fetchall()]
         # sort the recipes by creation date
         recipes.sort(key=lambda x: x['date_created'], reverse=True)
@@ -42,7 +48,9 @@ class RecipeManager:
         conn.close()
         return recipes
 
+    # Method to rate a recipe
     def rate_recipe(self, recipe_id, rating, user_id):
+        # Connect to the database
         conn = self.get_db_connection()
         c = conn.cursor()
         # Current timestamp for the rating event
@@ -54,6 +62,7 @@ class RecipeManager:
         ''', (recipe_id, user_id))
         existing_rating = c.fetchone()
 
+        # Insert or update the rating
         if existing_rating:
             # Update the existing rating
             c.execute('''
@@ -67,14 +76,15 @@ class RecipeManager:
                 VALUES (?, ?, ?, ?)
             ''', (recipe_id, user_id, rating, rated_on))
             affected_row_id = c.lastrowid
-        
         conn.commit()
-        row_id = c.lastrowid  # Get the last inserted or updated id
         conn.close()
         print("row_id:", affected_row_id)
+        # Return the affected row id
         return affected_row_id
    
+    # Method to add a new recipe
     def add_new_recipe(self, name, tags, ingredients, instructions, rating=None):
+        # Connect to the database
         conn = self.get_db_connection()
         date_created = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         c = conn.cursor()
@@ -99,9 +109,12 @@ class RecipeManager:
 
         return recipe_id
 
+    # Method to get top ingredients by user
     def get_top_ingredients_by_user(self, user_id):
+        # Connect to the database
         conn = self.get_db_connection()
         c = conn.cursor()
+        # Get all ingredients for recipes rated by the user with a rating greater than 4
         c.execute('''
             SELECT r.ingredients
             FROM recipes r
@@ -117,5 +130,6 @@ class RecipeManager:
         # Count and find the top 10 most common ingredients
         ingredient_count = Counter(all_ingredients)
         print("ingredient_count:", ingredient_count)
+        # Get the top 10 ingredients
         top_ingredients = [ingredient for ingredient, count in ingredient_count.most_common(10)]
         return top_ingredients    

@@ -3,17 +3,20 @@ import json
 import hashlib
 
 
+# class to manage the recipe database
 class RecipeDbManager:
+    # Initialize the database path and create the tables
     def __init__(self, db_path='recipes.db'):
         self.db_path = db_path
         self.create_table()
-
+    
+    # Method to create the tables in the database
     def create_table(self):
         # Establish connection to the SQLite database
         conn = sqlite3.connect(self.db_path)
         c = conn.cursor()
         
-        # Create the first table for recipes
+        # Create recipes table if it does not exist
         c.execute('''
             CREATE TABLE IF NOT EXISTS recipes (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,7 +28,7 @@ class RecipeDbManager:
             );
         ''')
         
-        # Create the second table for recipe ratings
+        # Create recipe_ratings table if it does not exist
         c.execute('''
             CREATE TABLE IF NOT EXISTS recipe_ratings (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,7 +42,7 @@ class RecipeDbManager:
             );
         ''')
         
-
+        # Create users table if it does not exist
         c.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY,
@@ -49,6 +52,7 @@ class RecipeDbManager:
                 role TEXT NOT NULL DEFAULT 'viewer'            )
         ''')
 
+        # Insert default admin user if it does not exist
         c.execute('SELECT * FROM users WHERE username=?', ('admin',))
         if c.fetchone() is None:
                 # Insert default admin user
@@ -61,7 +65,7 @@ class RecipeDbManager:
         conn.close()
         print("Database initialized.")
 
-
+    # Method to print all recipes in the database, for debugging purposes
     def print_all_recipes():
         conn = sqlite3.connect('recipes.db')
         c = conn.cursor()
