@@ -395,3 +395,9 @@ pre {
     font-size: 0.9em; /* Slightly smaller font size to differentiate from other text */
     margin-top: 5px; /* Adds a small margin above for spacing */
 }
+
+#ingredients_from_user {
+    width: 100%; /* Makes the input width relative to its parent container */
+    height: 35px; 
+    box-sizing: border-box; /* Includes padding and border in the element's total width */
+}

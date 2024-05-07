@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerButton = document.getElementById('registerButton');
     const cancelRegButton = document.getElementById('cancelRegButton');
     const sendToOpenAIButton = document.getElementById('sendToOpenAIButton');
+    const passwordInput = document.getElementById('password');
     
 
     // Initial call to fetch and display all recipes
@@ -48,9 +49,18 @@ document.addEventListener('DOMContentLoaded', function() {
             diets = 'any diet';
         }
         const cuisine = document.getElementById('cuisineSelect').value;
-        let promptText = `Generate a recipe for ${cuisine} cuisine with the following dietary preferences: ${diets}.`;
+        const ingredients_from_user = document.getElementById('ingredients_from_user').value;
+        let promptText = `Generate a recipe for ${cuisine} cuisine with the following dietary preferences: ${diets} and ingredients: ${ingredients_from_user}.`;
         console.log('promptText:', promptText);
         sendToOpenAI(JSON.stringify({ prompt: promptText }))
+    });
+
+    // Add event listener to the password input field to allow the user to press Enter to login
+    passwordInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default behavior of the Enter key
+            login(); // Execute the login function
+        }
     });
 
     // Add event listeners for various user actions like showing forms, logging in, registering, etc.

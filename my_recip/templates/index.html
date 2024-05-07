@@ -47,7 +47,7 @@
     
 
     <div id="openAIRequest">
-        <h2>Generate a Recipe</h2>
+        <h2>Recipe For You</h2>
         
         <!-- Checkboxes for dietary preferences -->
         <table>
@@ -69,8 +69,9 @@
             <option value="Japanese">Japanese</option>
             <option value="Korean">Korean</option>
         </select>
-        
-        <button id="sendToOpenAIButton">Generate Recipe</button>
+        <label for="ingredients_from_user">Prefered Ingredients:</label>
+        <input type="text" id="ingredients_from_user" name="ingredients_from_user"><br>
+        <button id="sendToOpenAIButton">Generate</button>
         <pre id="openAIResponse"></pre>
     </div>
     

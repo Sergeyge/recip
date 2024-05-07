@@ -232,7 +232,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         if top_ingredients:
             # Add the top ingredients to the prompt
             ingredient_text = ', '.join(top_ingredients)
-            enhanced_prompt = f"{prompt} Incorporate only few ingredients from the list: {ingredient_text}."
+            enhanced_prompt = f"{prompt} and add only few ingredients from the list: {ingredient_text}."
         else:
             # Use the original prompt if no top ingredients are available
             enhanced_prompt = prompt
