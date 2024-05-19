@@ -8,7 +8,8 @@ import {
     showSignInForm,
     register, 
     hideRegForm, 
-    sendToOpenAI
+    sendToOpenAI,
+    validateSearch
 } from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const addRecipeForm = document.getElementById('addRecipeForm');
     const cancelButton = document.getElementById('cancelButton');
     const searchButton = document.getElementById('searchButton');
-    const searchTagInput = document.getElementById('searchTagInput');    
     const loginButton = document.getElementById('loginButton');
     const logoutButton = document.getElementById('logoutButton');
     const signinButton = document.getElementById('signinButton');
@@ -25,21 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelRegButton = document.getElementById('cancelRegButton');
     const sendToOpenAIButton = document.getElementById('sendToOpenAIButton');
     const passwordInput = document.getElementById('password');
+    const searchInput = document.getElementById('searchArea');
     
 
     // Initial call to fetch and display all recipes
     fetchRecipes(); // Fetch all recipes when the page loads
-   
-    // Add event listener to the search button to fetch recipes based on a tag
-    searchButton.addEventListener('click', function() {
-        const tag = searchTagInput.value.trim();
-        // check if the tag is empty
-        if (tag === '') {
-            alert('Please enter a tag to search for recipes.');
-            return;
+
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            validateSearch()
         }
-        fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
-    });
+    })
 
     // Listener for sending a request to OpenAI with selected dietary preferences and cuisine type
     sendToOpenAIButton.addEventListener('click', function() {
@@ -64,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add event listeners for various user actions like showing forms, logging in, registering, etc.
+    searchButton.addEventListener('click', validateSearch);
     showFormButton.addEventListener('click', showAddRecipeForm);
     cancelButton.addEventListener('click', hideAddRecipeForm);
     addRecipeForm.addEventListener('submit', submitAddRecipeForm);    
@@ -72,5 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
     signinButton.addEventListener('click', showSignInForm);
     registerButton.addEventListener('click', register);
     cancelRegButton.addEventListener('click', hideRegForm);
+    
 });
     

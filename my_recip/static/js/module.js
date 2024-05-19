@@ -177,6 +177,7 @@ export function logout() {
     // Parse the JSON response
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         if (data.message === 'Logout successful') {
             alert('Logout successful');
             // Hide the user greeting, addRecipeForm and OpenAI request form, display the login form
@@ -275,6 +276,15 @@ export function hideRegForm() {
     document.getElementById('emailError').style.display = 'none';
 }
 
+export function validateSearch() {
+    const tag = searchTagInput.value.trim();
+        // check if the tag is empty
+        if (tag === '') {
+            alert('Please enter a tag to search for recipes.');
+            return;
+        }
+        fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
+}
 
 function validatePassword() {
     // Validate the password using a regular expression
