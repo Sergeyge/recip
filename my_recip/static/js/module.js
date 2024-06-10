@@ -177,7 +177,6 @@ export function logout() {
     // Parse the JSON response
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         if (data.message === 'Logout successful') {
             alert('Logout successful');
             // Hide the user greeting, addRecipeForm and OpenAI request form, display the login form
@@ -284,6 +283,26 @@ export function validateSearch() {
             return;
         }
         fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
+}
+
+export function showPassword(){
+    fetch('/showPass', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Show Pass') {
+            console.log(data.pass)
+            alert('Your password is: ' + data.pass);
+        } else {
+            // Display an error message if logout fails
+            alert('Failed to show password');
+        }
+    })
+    .catch(error => console.error('Error logging out:', error));
 }
 
 function validatePassword() {
