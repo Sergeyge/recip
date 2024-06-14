@@ -9,7 +9,8 @@ import {
     register, 
     hideRegForm, 
     sendToOpenAI,
-    validateSearch
+    validateSearch,
+    saveGeneratedResipe
 } from './module.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendToOpenAIButton = document.getElementById('sendToOpenAIButton');
     const passwordInput = document.getElementById('password');
     const searchInput = document.getElementById('searchArea');
-    
+    const saveGeneratedRecipeButton = document.getElementById('saveGeneratedRecipeButton');    
 
     // Initial call to fetch and display all recipes
     fetchRecipes(); // Fetch all recipes when the page loads
@@ -69,6 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     signinButton.addEventListener('click', showSignInForm);
     registerButton.addEventListener('click', register);
     cancelRegButton.addEventListener('click', hideRegForm);
-    
+    saveGeneratedRecipeButton.addEventListener('click', saveGeneratedResipe);
 });
     
