@@ -44,7 +44,6 @@ class RecipeManager:
         recipes = [dict(row) for row in c.fetchall()]
         # sort the recipes by creation date
         recipes.sort(key=lambda x: x['date_created'], reverse=True)
-        print("Recipes fetched:", recipes)
         conn.close()
         return recipes
 

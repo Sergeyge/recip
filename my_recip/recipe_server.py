@@ -165,7 +165,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         self._set_headers()
         self.wfile.write(json.dumps(recipes).encode())
 
-    def add_recipe(self, data):
+    def add_recipe(self, data): 
         # check if user is logged in
         if not self.user_manager._logged_in:
             self._set_headers(401)
@@ -173,7 +173,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             return
         try:
             # check if all required data is provided
-            if not all([data.get('name'), data.get('tags'), data.get('ingredients'), data.get('instructions'), isinstance(data.get('rating'), int)]):
+            if not all([data.get('name'), data.get('tags'), data.get('ingredients'), data.get('instructions')]):
                 self._set_headers(400)
                 self.wfile.write(json.dumps({'error': 'Missing or invalid data for the recipe'}).encode())
                 return
@@ -232,7 +232,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         if top_ingredients:
             # Add the top ingredients to the prompt
             ingredient_text = ', '.join(top_ingredients)
-            enhanced_prompt = f"{prompt} and add only few ingredients from the list: {ingredient_text}."
+            enhanced_prompt = f"{prompt} and add only few ingredients from the list without relation to proportions: {ingredient_text}."
         else:
             # Use the original prompt if no top ingredients are available
             enhanced_prompt = prompt
@@ -248,7 +248,8 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
             "messages": [
                 {
                     "role": "system",
-                    "content": "Provide short and simple recipes. The resipe should have a name, tags, list ingredients, and instructions"
+                    "content": "Provide short and simple recipes. The resipe should have a name, tags, list ingredients, and instructions. \
+                    The response must be in json format with mandatory fields: name, tags, ingredients, instructions and without extra symbols."
                 },
                 {
                     "role": "user",
@@ -297,7 +298,7 @@ def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8
     # Wrap the server socket in SSL context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
-    print(f'Starting HTTP server on port {port}')
+    print(f'Starting HTTPS server on port {port}')
     try:
         httpd.serve_forever()
     except Exception as e:

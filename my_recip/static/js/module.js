@@ -1,3 +1,5 @@
+var generatedRecipes ="";
+
 export function fetchRecipes(tag = '') {
     // Construct the URL based on whether a tag is provided
     const url = tag ? `/recipes?tag=${encodeURIComponent(tag)}` : '/recipes';
@@ -130,6 +132,26 @@ export function submitAddRecipeForm(event) {
     .catch(error => console.error('Error adding recipe:', error));
 }
 
+export function saveGeneratedResipe() {
+    // Prevent the default form submission
+    fetch('/recipes/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(generatedRecipes),
+    })
+    // Parse the JSON response
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message); // Log success message
+        fetchRecipes(); // Reload recipes
+        document.getElementById('saveGeneratedRecipeButton').style.display = 'none';
+        document.getElementById('openAIResponse').style.display = 'none';
+    })
+    // Log any errors
+    .catch(error => console.error('Error adding recipe:', error));
+}
 
 export function login() {
     const username = document.getElementById('username').value;
@@ -206,8 +228,24 @@ export function sendToOpenAI(question) {
     // Parse the JSON response
     .then(response => response.json())
     .then(data => {
-        console.log('OpenAI response:', data);
-        document.getElementById('openAIResponse').textContent = data;
+        console.log('OpenAI response:', JSON.parse(data));
+        generatedRecipes=JSON.parse(data)
+        console.log('Name', generatedRecipes.name);
+        const responseElement = document.getElementById('openAIResponse');
+        let htmlContent = `<h2>${generatedRecipes.name}</h2>`;
+        htmlContent += `<p><strong>Tags:</strong> ${generatedRecipes.tags.join(', ')}</p>`;
+        htmlContent += `<h3>Ingredients:</h3><ul>`;
+        generatedRecipes.ingredients.forEach(ingredient => {
+            htmlContent += `<li>${ingredient}</li>`;
+        });
+        htmlContent += `</ul><h3>Instructions:</h3><ol>`;
+        generatedRecipes.instructions.forEach(instruction => {
+            htmlContent += `<li>${instruction}</li>`;
+        });
+        htmlContent += `</ol>`;
+        responseElement.innerHTML = htmlContent; // Display the formatted recipe
+        document.getElementById('openAIResponse').style.display = 'block';
+        document.getElementById('saveGeneratedRecipeButton').style.display = 'block';
     })
     .catch(error => {
         console.error('Error sending prompt to OpenAI:', error);
@@ -277,33 +315,17 @@ export function hideRegForm() {
 
 export function validateSearch() {
     const tag = searchTagInput.value.trim();
-        // check if the tag is empty
-        if (tag === '') {
-            alert('Please enter a tag to search for recipes.');
-            return;
-        }
-        fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
+    // check if the tag is empty
+    if (tag === '') {
+        document.getElementById('searchTagInput').placeholder = 'Add a tag to search';
+    }
+    else {
+        document.getElementById('searchTagInput').value = ''; // Clear the search input field
+        document.getElementById('searchTagInput').placeholder = 'Search by tag...';
+    }
+    fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
 }
 
-export function showPassword(){
-    fetch('/showPass', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === 'Show Pass') {
-            console.log(data.pass)
-            alert('Your password is: ' + data.pass);
-        } else {
-            // Display an error message if logout fails
-            alert('Failed to show password');
-        }
-    })
-    .catch(error => console.error('Error logging out:', error));
-}
 
 function validatePassword() {
     // Validate the password using a regular expression

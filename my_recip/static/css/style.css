@@ -202,6 +202,7 @@ form#addRecipeForm button[type="button"]:hover {
 #openAIResponse {
     text-align: left; /* Aligns the response text to the left */
     padding-top: 15px; /* Adds space above the response text */
+    display: none;
 }
 
 #openAIRequest table {
@@ -400,4 +401,8 @@ pre {
     width: 100%; /* Makes the input width relative to its parent container */
     height: 35px; 
     box-sizing: border-box; /* Includes padding and border in the element's total width */
+}
+
+#saveGeneratedRecipeButton {
+    display: none;
 }
