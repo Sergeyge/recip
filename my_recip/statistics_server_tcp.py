@@ -3,10 +3,11 @@ import threading
 import re
 import os
 import json
+import ssl
 from statistics_manager import ServerStats
 
 IP = '0.0.0.0'
-PORT = 8444
+PORT = 8443
 SOCKET_TIMEOUT = 60
 HTTP_OK = 'HTTP/1.1 200 OK'
 HTTP_NOT_FOUND = 'HTTP/1.1 404 Not Found'
@@ -110,6 +111,13 @@ def main():
     server_socket.listen()
     print(f"Listening for connections on port {PORT}")
 
+    context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+    context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  # Adjust file paths as necessary
+
+    # Wrap the server socket in the context for HTTPS
+    server_socket = context.wrap_socket(server_socket, server_side=True)
+
+    # Initialize database for storing statistics
     statistics_db = ServerStats
     statistics_db().init_db()
 

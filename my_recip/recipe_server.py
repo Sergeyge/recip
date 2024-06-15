@@ -283,7 +283,7 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
                       self.log_date_time_string(),
                       format % args))
 
-def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8443, start_db=RecipeDbManager):
+def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8444, start_db=RecipeDbManager):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
 
