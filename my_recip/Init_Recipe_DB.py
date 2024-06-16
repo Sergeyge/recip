@@ -63,7 +63,7 @@ class RecipeDbManager:
         # Commit the changes and close the connection to the database
         conn.commit()
         conn.close()
-        print("Database initialized.")
+        # print("Recipe Database initialized.")
 
     # Method to print all recipes in the database, for debugging purposes
     def print_all_recipes():

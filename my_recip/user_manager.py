@@ -19,7 +19,7 @@ class UserManager:
         self._logged_in=False
         self._user_id=None
         # Get the database path from RecipeDbManager
-        self.db_path = self.db_path = RecipeDbManager().db_path
+        self.db_path = RecipeDbManager().db_path
 
     # check_credentials method to check if the username and password are valid
     def check_credentials(self, username, password):

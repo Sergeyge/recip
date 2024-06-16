@@ -259,13 +259,14 @@ class ClientHTTPSRequestHandler(BaseHTTPRequestHandler):
         }
         # Make a POST request to the OpenAI API
         response = requests.post(url, headers=headers, json=data)
-        print ("responce=", response.content)
+        # print ("responce=", response.content)
+        
         # Check if the request was successful
         if response.status_code == 200:
             response_json = response.json()
-            print("response_json = ", response_json)
+            # print("response_json = ", response_json)
             message_content = response_json['choices'][0]['message']['content']
-            print("message_content = ", message_content)
+            # print("message_content = ", message_content)
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
@@ -293,7 +294,11 @@ def run(server_class=HTTPServer, handler_class=ClientHTTPSRequestHandler, port=8
     context.load_cert_chain(certfile='cert/cert.pem', keyfile='cert/key.pem')  
 
     # Initialize database
-    start_db()
+    try: 
+        start_db()
+        print("Recipe Database initialized.")
+    except Exception as e:
+        print(f"Recipe Database initialization error: {e}")     
 
     # Wrap the server socket in SSL context
     httpd.socket = context.wrap_socket(httpd.socket, server_side=True)

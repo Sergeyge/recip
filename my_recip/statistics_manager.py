@@ -28,7 +28,7 @@ class ServerStats:
         # Commit the changes and close the connection
         conn.commit()
         conn.close()
-        print('Database initialized')
+        print('Statistic Database initialized')
 
     # Method to increment the request count
     def increment_request_count(self, method, client_address, user_agent, api, is_registered):

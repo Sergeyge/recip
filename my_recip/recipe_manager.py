@@ -18,7 +18,6 @@ class RecipeManager:
 
     # Method to get all recipes from the database
     def get_all_recipes(self, tag_filter=None):
-        print("Connecting to database...")
         conn = self.get_db_connection()
         c = conn.cursor()
         print("Executing SELECT query...")
@@ -77,7 +76,6 @@ class RecipeManager:
             affected_row_id = c.lastrowid
         conn.commit()
         conn.close()
-        print("row_id:", affected_row_id)
         # Return the affected row id
         return affected_row_id
    
@@ -95,7 +93,7 @@ class RecipeManager:
         recipe_id = c.lastrowid  # Get the id of the newly inserted recipe
 
         # Set default rating if none provided
-        default_rating = 4 if rating is None else rating
+        default_rating = 3 if rating is None else rating
 
         # Insert the default or provided rating into the recipe_ratings table
         rated_on = datetime.now().isoformat()  # Use a consistent datetime format for the rating timestamp

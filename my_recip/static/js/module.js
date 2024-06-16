@@ -1,4 +1,4 @@
-var generatedRecipes ="";
+var generatedRecipes = "";
 
 export function fetchRecipes(tag = '') {
     // Construct the URL based on whether a tag is provided
@@ -67,7 +67,7 @@ export function fetchRecipes(tag = '') {
     .catch(error => console.error('Error loading recipes:', error));
 }
 
-export function updateRecipeRating(recipeId, newRating) {
+function updateRecipeRating(recipeId, newRating) {
     fetch(`/recipes/rate/${recipeId}`, {
         method: 'POST',
         headers: {
@@ -109,7 +109,7 @@ export function submitAddRecipeForm(event) {
         tags: event.target.tags.value.split(',').map(tag => tag.trim()), 
         ingredients: event.target.ingredients.value.split(',').map(ingredient => ingredient.trim()),
         instructions: event.target.instructions.value.split(',').map(instruction => instruction.trim()),
-        rating: 4, // Default rating
+        rating: 3, // Default rating
     };
     // Send the form data to the server
     fetch('/recipes/add', {
@@ -229,7 +229,7 @@ export function sendToOpenAI(question) {
     .then(response => response.json())
     .then(data => {
         console.log('OpenAI response:', JSON.parse(data));
-        generatedRecipes=JSON.parse(data)
+        generatedRecipes = JSON.parse(data)
         console.log('Name', generatedRecipes.name);
         const responseElement = document.getElementById('openAIResponse');
         let htmlContent = `<h2>${generatedRecipes.name}</h2>`;
@@ -252,8 +252,6 @@ export function sendToOpenAI(question) {
         document.getElementById('openAIResponse').textContent = 'Failed to get response from OpenAI.';
     });
 }
-
-
 
 export function showSignInForm() {  
     // Hide the login and search forms, display the register form
@@ -283,7 +281,7 @@ export function register() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, email})
+        body: JSON.stringify({username, password, email})
     })
     .then(response => response.json())
     .then(data => {
@@ -300,7 +298,6 @@ export function register() {
     .catch(error => {
         console.error('Error registering:', error);
         alert('Error registering: ' + error.message);
-        
     });
 }
 
@@ -325,7 +322,6 @@ export function validateSearch() {
     }
     fetchRecipes(tag); // Fetch recipes with the specified tag or all recipes if the tag is empty
 }
-
 
 function validatePassword() {
     // Validate the password using a regular expression
